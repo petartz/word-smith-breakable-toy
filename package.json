@@ -1,0 +1,22 @@
+{
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client",
+    "e2e"
+  ],
+  "scripts": {
+    "build:client": "yarn workspace word-smith-breakable-toy-client build",
+    "dev": "yarn workspace word-smith-breakable-toy-server dev",
+    "dev:debug": "yarn workspace word-smith-breakable-toy-server dev:debug",
+    "heroku-postbuild": "yarn workspace word-smith-breakable-toy-client build",
+    "start": "yarn workspace word-smith-breakable-toy-server start",
+    "dev:cypress": "yarn workspace word-smith-breakable-toy-server dev:e2e",
+    "e2e:open": "yarn workspace word-smith-breakable-toy-e2e e2e:open",
+    "e2e:run": "yarn workspace word-smith-breakable-toy-e2e e2e:run"
+  },
+  "engines": {
+    "node": "^14.15"
+  }
+}
