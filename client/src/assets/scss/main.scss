@@ -1,11 +1,23 @@
 @import "./foundation/settings";
 @import "~foundation-sites/scss/foundation";
+@import './stylesheets/Colors.scss';
+
 @include foundation-everything;
 // place global css here
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+.word-tile {
+  border: 2px solid $beige;
+  border-radius: 0.5em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 2em;
+  margin-bottom: 1em;
+  background-color: $light-beige;
+  max-width: 40%;
 }
 
 :root {
