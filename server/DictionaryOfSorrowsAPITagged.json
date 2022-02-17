@@ -1,7 +1,7 @@
 {
     "words":
-    [
-    {
+    [{
+        "id": 1,
         "title": "adomania",
         "non_latin_title": "adomania",
         "author": "John Koenig",
@@ -10,9 +10,11 @@
         "speech": "noun",
         "video": null,
         "entry": 1,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [2,3,9]
     },
     {
+        "id": 2,
         "title": "adronitis",
         "non_latin_title": "adronitis",
         "author": "John Koenig",
@@ -21,9 +23,11 @@
         "speech": "noun",
         "video": null,
         "entry": 2,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [8,5,12]
     },
     {
+        "id": 3,
         "title": "aimonomia",
         "non_latin_title": "aimonomia",
         "author": "John Koenig",
@@ -32,9 +36,11 @@
         "speech": "noun",
         "video": null,
         "entry": 3,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [9,2]
     },
     {
+        "id": 4,
         "title": "alazia",
         "non_latin_title": "alazia",
         "author": "John Koenig",
@@ -43,9 +49,12 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=WBoZzArmtNA",
         "entry": 4,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [9,2]
+
     },
     {
+        "id": 5,
         "title": "altschmerz",
         "non_latin_title": "altschmerz",
         "author": "John Koenig",
@@ -54,9 +63,11 @@
         "speech": "noun",
         "video": null,
         "entry": 5,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [10,9]
     },
     {
+        "id": 6,
         "title": "ambedo",
         "non_latin_title": "ambedo",
         "author": "John Koenig",
@@ -65,9 +76,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=osrvO9Q3PtI",
         "entry": 6,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [7,13,6]
     },
     {
+        "id": 7,
         "title": "ameneurosis",
         "non_latin_title": "ameneurosis",
         "author": "John Koenig",
@@ -76,20 +89,24 @@
         "speech": "noun",
         "video": null,
         "entry": 7,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [7,11]
     },
     {
+        "id": 8,
         "title": "anchorage",
         "non_latin_title": "anchorage",
         "author": "John Koenig",
         "authorPicture": "https://ideasofthevagabond.files.wordpress.com/2014/10/john-koenig.jpg",
-        "definition": "the desire to hold on to time as it passes, like trying to keep your grip on a rock in the middle of a river, feeling the weight of the current against your chest while your elders float on downstream, calling over the roar of the rapids, u201cJust let go its okay let go.u201d",
+        "definition": "the desire to hold on to time as it passes, like trying to keep your grip on a rock in the middle of a river, feeling the weight of the current against your chest while your elders float on downstream, calling over the roar of the rapids, u201cJust let go its okay let go.",
         "speech": "noun",
         "video": null,
         "entry": 8,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [11,3,2]
     },
     {
+        "id": 9,
         "title": "anecdoche",
         "non_latin_title": "anecdoche",
         "author": "John Koenig",
@@ -98,9 +115,11 @@
         "speech": "noun",
         "video": null,
         "entry": 9,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [5,12]
     },
     {
+        "id": 10,
         "title": "anemoia",
         "non_latin_title": "anemoia",
         "author": "John Koenig",
@@ -109,9 +128,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=wH6ZCIRjI14",
         "entry": 10,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [1,3,11]
     },
     {
+        "id": 11,
         "title": "antematter",
         "non_latin_title": "antematter",
         "author": "John Koenig",
@@ -120,9 +141,11 @@
         "speech": "noun",
         "video": null,
         "entry": 11,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [11,3,13]
     },
     {
+        "id": 12,
         "title": "anthrodynia",
         "non_latin_title": "anthrodynia",
         "author": "John Koenig",
@@ -131,9 +154,11 @@
         "speech": "noun",
         "video": null,
         "entry": 12,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [10,8]
     },
     {
+        "id": 13,
         "title": "apomakrysmenophobia",
         "non_latin_title": "apomakrysmenophobia",
         "author": "John Koenig",
@@ -142,9 +167,11 @@
         "speech": "noun",
         "video": null,
         "entry": 13,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [9,5,7]
     },
     {
+        "id": 14,
         "title": "astrophe",
         "non_latin_title": "astrophe",
         "author": "John Koenig",
@@ -153,9 +180,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=B1SkepihYLE",
         "entry": 14,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [4,12]
     },
     {
+        "id": 15,
         "title": "avenoir",
         "non_latin_title": "avenoir",
         "author": "John Koenig",
@@ -164,9 +193,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=oKOW30gSMuE",
         "entry": 15,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [11,1]
     },
     {
+        "id": 16,
         "title": "backmasking",
         "non_latin_title": "backmasking",
         "author": "John Koenig",
@@ -175,10 +206,12 @@
         "speech": "noun",
         "video": null,
         "entry": 16,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [2,5]
     },
     {
-        "title": "ballagerraidh",
+        "id": 17,
+        "title": "ballagarraidh",
         "non_latin_title": "ballagarraidh",
         "author": "John Koenig",
         "authorPicture": "https://ideasofthevagabond.files.wordpress.com/2014/10/john-koenig.jpg",
@@ -186,9 +219,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=cN7sZ2wMg_Q",
         "entry": 17,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [13,9,4]
     },
     {
+        "id": 18,
         "title": "catoptric tristesse",
         "non_latin_title": "catoptric_tristesse",
         "author": "John Koenig",
@@ -197,9 +232,11 @@
         "speech": "noun",
         "video": null,
         "entry": 18,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [2,5,4]
     },
     {
+        "id": 19,
         "title": "chrysalism",
         "non_latin_title": "chrysalism",
         "author": "John Koenig",
@@ -208,9 +245,11 @@
         "speech": "noun",
         "video": null,
         "entry": 19,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [13,4,6,2]
     },
     {
+        "id": 20,
         "title": "contact high-five",
         "non_latin_title": "contact_high-five",
         "author": "John Koenig",
@@ -219,9 +258,11 @@
         "speech": "noun",
         "video": null,
         "entry": 20,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [5,6,13,11]
     },
     {
+        "id": 21,
         "title": "daguerreologue",
         "non_latin_title": "daguerreologue",
         "author": "John Koenig",
@@ -230,9 +271,11 @@
         "speech": "noun",
         "video": null,
         "entry": 21,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [4,11,12,2]
     },
     {
+        "id": 22,
         "title": "dead reckoning",
         "non_latin_title": "dead_reckoning",
         "author": "John Koenig",
@@ -241,9 +284,11 @@
         "speech": "noun",
         "video": null,
         "entry": 22,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [2,7,12]
     },
     {
+        "id": 23,
         "title": "deep cut",
         "non_latin_title": "deep_cut",
         "author": "John Koenig",
@@ -252,9 +297,11 @@
         "speech": "noun",
         "video": null,
         "entry": 23,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [2,13,1]
     },
     {
+        "id": 24,
         "title": "degrasse",
         "non_latin_title": "degrasse",
         "author": "John Koenig",
@@ -263,20 +310,24 @@
         "speech": "adjective",
         "video": null,
         "entry": 24,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [13,2,4]
     },
     {
+        "id": 25,
         "title": "dialecstatic",
         "non_latin_title": "dialecstatic",
         "author": "John Koenig",
         "authorPicture": "https://ideasofthevagabond.files.wordpress.com/2014/10/john-koenig.jpg",
-        "definition": "hearing a person with a thick accent pronounce a certain phrase the Texan u201ccooler,u201d the South African u201cbastard,u201d the Kiwi u201cthirty years agou201d and wanting them to repeat it over and over until the vowels pool in the air and congeal into a linguistic taffy you could break apart and give as presents.",
+        "definition": "hearing a person with a thick accent pronounce a certain phrase the Texan cooler, the South African u201cbastard,u201d the Kiwi u201cthirty years agou201d and wanting them to repeat it over and over until the vowels pool in the air and congeal into a linguistic taffy you could break apart and give as presents.",
         "speech": "adjective",
         "video": null,
         "entry": 25,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [4,6]
     },
     {
+        "id": 26,
         "title": "dream fever",
         "non_latin_title": "dream_fever",
         "author": "John Koenig",
@@ -285,9 +336,11 @@
         "speech": "noun",
         "video": null,
         "entry": 26,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [5,11]
     },
     {
+        "id": 27,
         "title": "des vu",
         "non_latin_title": "des_vu",
         "author": "John Koenig",
@@ -296,9 +349,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=bPKoIZn6IJI",
         "entry": 27,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [4,1,2]
     },
     {
+        "id": 28,
         "title": "ecstatic shock",
         "non_latin_title": "ecstatic_shock",
         "author": "John Koenig",
@@ -307,9 +362,11 @@
         "speech": "noun",
         "video": null,
         "entry": 28,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [6,13,11]
     },
     {
+        "id": 29,
         "title": "ellipsism",
         "non_latin_title": "ellipsism",
         "author": "John Koenig",
@@ -318,9 +375,11 @@
         "speech": "noun",
         "video": null,
         "entry": 29,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [7,1,12]
     },
     {
+        "id": 30,
         "title": "exulansis",
         "non_latin_title": "exulansis",
         "author": "John Koenig",
@@ -329,9 +388,11 @@
         "speech": "noun",
         "video": null,
         "entry": 30,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [7,12,5]
     },
     {
+        "id": 31,
         "title": "fata organa",
         "non_latin_title": "fata_organa",
         "author": "John Koenig",
@@ -340,9 +401,11 @@
         "speech": "noun",
         "video": null,
         "entry": 31,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [13,6]
     },
     {
+        "id": 32,
         "title": "fitzcarraldo",
         "non_latin_title": "fitzcarraldo",
         "author": "John Koenig",
@@ -351,9 +414,11 @@
         "speech": "noun",
         "video": null,
         "entry": 32,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [11,8,4]
     },
     {
+        "id": 33,
         "title": "flashover",
         "non_latin_title": "flashover",
         "author": "John Koenig",
@@ -362,9 +427,11 @@
         "speech": "noun",
         "video": null,
         "entry": 33,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [5,6,13]
     },
     {
+        "id": 34,
         "title": "funkenzwangsvorstellung",
         "non_latin_title": "funkenzwangsvorstellung",
         "author": "John Koenig",
@@ -373,9 +440,11 @@
         "speech": "noun",
         "video": null,
         "entry": 34,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [13,4,6,3]
     },
     {
+        "id": 35,
         "title": "gnasche",
         "non_latin_title": "gnasche",
         "author": "John Koenig",
@@ -384,9 +453,11 @@
         "speech": "noun",
         "video": null,
         "entry": 35,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [11,5]
     },
     {
+        "id": 36,
         "title": "gnossienne",
         "non_latin_title": "gnossienne",
         "author": "John Koenig",
@@ -395,9 +466,11 @@
         "speech": "noun",
         "video": null,
         "entry": 36,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [4,5,8,12]
     },
     {
+        "id": 37,
         "title": "hanker sore",
         "non_latin_title": "hanker_sore",
         "author": "John Koenig",
@@ -406,9 +479,11 @@
         "speech": "adjective",
         "video": null,
         "entry": 37,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [11,5,8]
     },
     {
+        "id": 38,
         "title": "heartworm",
         "non_latin_title": "heartworm",
         "author": "John Koenig",
@@ -417,20 +492,24 @@
         "speech": "noun",
         "video": null,
         "entry": 38,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [5,11]
     },
     {
+        "id": 39,
         "title": "hiybbprqag",
         "non_latin_title": "hiybbprqag",
         "author": "John Koenig",
         "authorPicture": "https://ideasofthevagabond.files.wordpress.com/2014/10/john-koenig.jpg",
-        "definition": "the feeling that everything original has already been done, that the experiment of human culture long ago filled its petri dish and now just feeds on itself, endlessly crossbreeding old cliches into a radioactive ooze of sadness.",
+        "definition": "the feeling that everything original has already been done, that the experiment of human culture long ago filled its petri dish and now just feeds on itself, endlessly crossbreeding old cliche0s into a radioactive ooze of sadness.",
         "speech": "noun",
         "video": null,
         "entry": 39,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [2,12,10]
     },
     {
+        "id": 40,
         "title": "jouska",
         "non_latin_title": "jouska",
         "author": "John Koenig",
@@ -439,9 +518,11 @@
         "speech": "noun",
         "video": null,
         "entry": 40,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [4,12]
     },
     {
+        "id": 41,
         "title": "kairosclerosis",
         "non_latin_title": "kairosclerosis",
         "author": "John Koenig",
@@ -450,9 +531,12 @@
         "speech": "noun",
         "video": null,
         "entry": 41,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [4,6,13]
+
     },
     {
+        "id": 42,
         "title": "kenopsia",
         "non_latin_title": "kenopsia",
         "author": "John Koenig",
@@ -461,9 +545,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=OzkLgLtVreg",
         "entry": 42,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [7,5]
     },
     {
+        "id": 43,
         "title": "keta",
         "non_latin_title": "keta",
         "author": "John Koenig",
@@ -472,9 +558,11 @@
         "speech": "noun",
         "video": "https://vimeo.com/83258629",
         "entry": 43,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [1]
     },
     {
+        "id": 44,
         "title": "keyframe",
         "non_latin_title": "keyframe",
         "author": "John Koenig",
@@ -483,9 +571,11 @@
         "speech": "noun",
         "video": "https://vimeo.com/81858839",
         "entry": 44,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [1,13,12,4]
     },
     {
+        "id": 45,
         "title": "klexos",
         "non_latin_title": "klexos",
         "author": "John Koenig",
@@ -494,9 +584,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=pxN1YnVUfjM",
         "entry": 45,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [1]
     },
     {
+        "id": 46,
         "title": "koinophobia",
         "non_latin_title": "koinophobia",
         "author": "John Koenig",
@@ -505,9 +597,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=Kcjfi8oNQY8",
         "entry": 46,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [9,4]
     },
     {
+        "id": 47,
         "title": "kudoclasm",
         "non_latin_title": "kudoclasm",
         "author": "John Koenig",
@@ -516,9 +610,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=vPHuRnixxWM",
         "entry": 47,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [11,12,2]
     },
     {
+        "id": 48,
         "title": "kuebiko",
         "non_latin_title": "kuebiko",
         "author": "John Koenig",
@@ -527,9 +623,11 @@
         "speech": "noun",
         "video": null,
         "entry": 48,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [10,8,2]
     },
     {
+        "id": 49,
         "title": "la cuna",
         "non_latin_title": "la_cuna",
         "author": "John Koenig",
@@ -538,9 +636,11 @@
         "speech": "noun",
         "video": null,
         "entry": 49,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [7,1,2]
     },
     {
+        "id": 50,
         "title": "la gaudiere",
         "non_latin_title": "la_gaudiere",
         "author": "John Koenig",
@@ -549,9 +649,11 @@
         "speech": "noun",
         "video": null,
         "entry": 50,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [5,6]
     },
     {
+        "id": 51,
         "title": "lachesism",
         "non_latin_title": "lachesism",
         "author": "John Koenig",
@@ -560,9 +662,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=wqovm-Io2D0",
         "entry": 51,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [11,2,4]
     },
     {
+        "id": 52,
         "title": "lalalalia",
         "non_latin_title": "lalalalia",
         "author": "John Koenig",
@@ -571,9 +675,11 @@
         "speech": "noun",
         "video": null,
         "entry": 52,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [4,5]
     },
     {
+        "id": 53,
         "title": "lapyear",
         "non_latin_title": "lapyear",
         "author": "John Koenig",
@@ -582,20 +688,24 @@
         "speech": "noun",
         "video": null,
         "entry": 53,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [2,9]
     },
     {
+        "id": 54,
         "title": "lethobenthos",
         "non_latin_title": "lethobenthos",
         "author": "John Koenig",
         "authorPicture": "https://ideasofthevagabond.files.wordpress.com/2014/10/john-koenig.jpg",
-        "definition": "the habit of forgetting how important someone is to you until you see them again in person, making you wish your day would begin with a u201cpreviously onu201d recap of your lifes various plot arcs, and end with u201cto be continuedu2026u201d after those will-they-wont-they cliffhanger episodes that air just before the show goes back into months of repeats.",
+        "definition": "the habit of forgetting how important someone is to you until you see them again in person, making you wish your day would begin with a previously on recap of your lifes various plot arcs, and end with u201cto be continued after those will-they-wont-they cliffhanger episodes that air just before the show goes back into months of repeats.",
         "speech": "noun",
         "video": null,
         "entry": 54,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [5]
     },
     {
+        "id": 55,
         "title": "liberosis",
         "non_latin_title": "liberosis",
         "author": "John Koenig",
@@ -604,9 +714,11 @@
         "speech": "noun",
         "video": null,
         "entry": 55,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [11,4,2]
     },
     {
+        "id": 56,
         "title": "lutalica",
         "non_latin_title": "lutalica",
         "author": "John Koenig",
@@ -615,9 +727,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=Tz1PNIOQsFs",
         "entry": 56,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [4]
     },
     {
+        "id": 57,
         "title": "mahpiohanzia",
         "non_latin_title": "mahpiohanzia",
         "author": "John Koenig",
@@ -626,9 +740,11 @@
         "speech": "noun",
         "video": null,
         "entry": 57,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [12,4]
     },
     {
+        "id": 58,
         "title": "mal de coucou",
         "non_latin_title": "mal_de_coucou",
         "author": "John Koenig",
@@ -637,9 +753,11 @@
         "speech": "noun",
         "video": null,
         "entry": 58,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [5,4, 12]
     },
     {
+        "id": 59,
         "title": "mauerbauertraurigkeit",
         "non_latin_title": "mauerbauertraurigkeit",
         "author": "John Koenig",
@@ -648,9 +766,11 @@
         "speech": "noun",
         "video": null,
         "entry": 59,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [4,5]
     },
     {
+        "id": 60,
         "title": "midsummer",
         "non_latin_title": "midsummer",
         "author": "John Koenig",
@@ -659,9 +779,11 @@
         "speech": "noun",
         "video": null,
         "entry": 60,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [2,4]
     },
     {
+        "id": 61,
         "title": "mimeomia",
         "non_latin_title": "mimeomia",
         "author": "John Koenig",
@@ -670,9 +792,11 @@
         "speech": "noun",
         "video": null,
         "entry": 61,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [8,4]
     },
     {
+        "id": 62,
         "title": "moledro",
         "non_latin_title": "moledro",
         "author": "John Koenig",
@@ -681,9 +805,11 @@
         "speech": "noun",
         "video": null,
         "entry": 62,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [6,4,5,13]
     },
     {
+        "id": 63,
         "title": "moment of tangency",
         "non_latin_title": "moment_of_tangency",
         "author": "John Koenig",
@@ -692,9 +818,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=cxOuG6zQo_0",
         "entry": 63,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [2,11,12]
     },
     {
+        "id": 64,
         "title": "monachopsis",
         "non_latin_title": "monachopsis",
         "author": "John Koenig",
@@ -703,9 +831,11 @@
         "speech": "noun",
         "video": null,
         "entry": 64,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [7,12]
     },
     {
+        "id": 65,
         "title": "morii",
         "non_latin_title": "morii",
         "author": "John Koenig",
@@ -714,9 +844,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=1asBOCAmgaw",
         "entry": 65,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [11,2]
     },
     {
+        "id": 66,
         "title": "moriturism",
         "non_latin_title": "moriturism",
         "author": "John Koenig",
@@ -725,9 +857,11 @@
         "speech": "noun",
         "video": null,
         "entry": 66,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [2,4]
     },
     {
+        "id": 67,
         "title": "nementia",
         "non_latin_title": "nementia",
         "author": "John Koenig",
@@ -736,9 +870,11 @@
         "speech": "noun",
         "video": null,
         "entry": 67,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [9,11,1]
     },
     {
+        "id": 68,
         "title": "nighthawk",
         "non_latin_title": "nighthawk",
         "author": "John Koenig",
@@ -747,9 +883,11 @@
         "speech": "noun",
         "video": null,
         "entry": 68,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [9,12]
     },
     {
+        "id": 69,
         "title": "nodus tollens",
         "non_latin_title": "nodus_tollens",
         "author": "John Koenig",
@@ -758,9 +896,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=Qc6cMHUyblg",
         "entry": 69,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [2,4,12]
     },
     {
+        "id": 70,
         "title": "occhiolism",
         "non_latin_title": "occhiolism",
         "author": "John Koenig",
@@ -769,9 +909,11 @@
         "speech": "noun",
         "video": null,
         "entry": 70,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [10,4]
     },
     {
+        "id": 71,
         "title": "oleka",
         "non_latin_title": "oleka",
         "author": "John Koenig",
@@ -780,9 +922,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=3FKsCK6Vfuk",
         "entry": 71,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [1,2,4]
     },
     {
+        "id": 72,
         "title": "onism",
         "non_latin_title": "onism",
         "author": "John Koenig",
@@ -791,9 +935,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=IrBlmpqh8T0",
         "entry": 72,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [8,12]
     },
     {
+        "id": 73,
         "title": "opia",
         "non_latin_title": "opia",
         "author": "John Koenig",
@@ -802,10 +948,12 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=wsKBTIdR99o",
         "entry": 73,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [5,13]
     },
     {
-        "title": "pero",
+        "id": 74,
+        "title": "paro",
         "non_latin_title": "paro",
         "author": "John Koenig",
         "authorPicture": "https://ideasofthevagabond.files.wordpress.com/2014/10/john-koenig.jpg",
@@ -813,9 +961,11 @@
         "speech": "noun",
         "video": null,
         "entry": 74,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [4,12,9,7]
     },
     {
+        "id": 75,
         "title": "reverse shibboleth",
         "non_latin_title": "reverse_shibboleth",
         "author": "John Koenig",
@@ -824,9 +974,11 @@
         "speech": "noun",
         "video": null,
         "entry": 75,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [4]
     },
     {
+        "id": 76,
         "title": "rigor samsa",
         "non_latin_title": "rigor_samsa",
         "author": "John Koenig",
@@ -835,9 +987,11 @@
         "speech": "noun",
         "video": null,
         "entry": 76,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [2,4,13]
     },
     {
+        "id": 77,
         "title": "rollover reaction",
         "non_latin_title": "rollover_reaction",
         "author": "John Koenig",
@@ -846,9 +1000,11 @@
         "speech": "noun",
         "video": null,
         "entry": 77,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [5,2]
     },
     {
+        "id": 78,
         "title": "rubatosis",
         "non_latin_title": "rubatosis",
         "author": "John Koenig",
@@ -857,10 +1013,12 @@
         "speech": "noun",
         "video": null,
         "entry": 78,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [9]
     },
     {
-        "title": "reckkehrunruhe",
+        "id": 79,
+        "title": "rf0ckkehrunruhe",
         "non_latin_title": "ruckkehrunruhe",
         "author": "John Koenig",
         "authorPicture": "https://ideasofthevagabond.files.wordpress.com/2014/10/john-koenig.jpg",
@@ -868,9 +1026,11 @@
         "speech": "noun",
         "video": null,
         "entry": 79,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [11,12]
     },
     {
+        "id": 80,
         "title": "scabulous",
         "non_latin_title": "scabulous",
         "author": "John Koenig",
@@ -879,9 +1039,11 @@
         "speech": "adjective",
         "video": null,
         "entry": 80,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [4]
     },
     {
+        "id": 81,
         "title": "semaphorism",
         "non_latin_title": "semaphorism",
         "author": "John Koenig",
@@ -890,9 +1052,11 @@
         "speech": "noun",
         "video": null,
         "entry": 81,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [5,13,4]
     },
     {
+        "id": 82,
         "title": "silience",
         "non_latin_title": "silience",
         "author": "John Koenig",
@@ -901,20 +1065,24 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=i_DZHALK2yE",
         "entry": 82,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [6,5]
     },
     {
+        "id": 83,
         "title": "slipcast",
         "non_latin_title": "slipcast",
         "author": "John Koenig",
         "authorPicture": "https://ideasofthevagabond.files.wordpress.com/2014/10/john-koenig.jpg",
-        "definition": "the default expression that your face automatically reverts to when idle amused, melancholic, pissed off which occurs when a strong emotion gets buried and forgotten in the psychological laundry of everyday life, leaving you wearing an unintentional vibe of pink or blue or gray, or in rare cases, a tie-dye of sheer madness.",
+        "definition": "the default expression that your face automatically reverts to when idle - amused, melancholic, pissed off - which occurs when a strong emotion gets buried and forgotten in the psychological laundry of everyday life, leaving you wearing an unintentional vibe of pink or blue or gray, or in rare cases, a tie-dye of sheer madness.",
         "speech": "noun",
         "video": null,
         "entry": 83,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [2,4]
     },
     {
+        "id": 84,
         "title": "socha",
         "non_latin_title": "socha",
         "author": "John Koenig",
@@ -923,9 +1091,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=igKea6GgTvI",
         "entry": 84,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [5]
     },
     {
+        "id": 85,
         "title": "sonder",
         "non_latin_title": "sonder",
         "author": "John Koenig",
@@ -934,9 +1104,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=AkoML0_FiV4",
         "entry": 85,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [4,5]
     },
     {
+        "id": 86,
         "title": "swish fulfillment",
         "non_latin_title": "swish_fulfillment",
         "author": "John Koenig",
@@ -945,9 +1117,11 @@
         "speech": "noun",
         "video": null,
         "entry": 86,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [6,13]
     },
     {
+        "id": 87,
         "title": "the bends",
         "non_latin_title": "the_bends",
         "author": "John Koenig",
@@ -956,9 +1130,11 @@
         "speech": "noun",
         "video": null,
         "entry": 87,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [8,12,2]
     },
     {
+        "id": 88,
         "title": "the kinda blues",
         "non_latin_title": "the_kinda_blues",
         "author": "John Koenig",
@@ -967,9 +1143,11 @@
         "speech": "noun",
         "video": null,
         "entry": 88,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [2,7,12]
     },
     {
+        "id": 89,
         "title": "the McFly effect",
         "non_latin_title": "the_mcfly_effect",
         "author": "John Koenig",
@@ -978,9 +1156,11 @@
         "speech": "noun",
         "video": null,
         "entry": 89,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [5,6,2]
     },
     {
+        "id": 90,
         "title": "the meantime",
         "non_latin_title": "the_meantime",
         "author": "John Koenig",
@@ -989,9 +1169,11 @@
         "speech": "noun",
         "video": null,
         "entry": 90,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [2,11]
     },
     {
+        "id": 91,
         "title": "the tilt shift",
         "non_latin_title": "the_tilt_shift",
         "author": "John Koenig",
@@ -1000,9 +1182,11 @@
         "speech": "noun",
         "video": null,
         "entry": 91,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [2,1,12]
     },
     {
+        "id": 92,
         "title": "trumspringa",
         "non_latin_title": "trumspringa",
         "author": "John Koenig",
@@ -1011,9 +1195,11 @@
         "speech": "noun",
         "video": null,
         "entry": 92,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [2,6,11]
     },
     {
+        "id": 93,
         "title": "vellichor",
         "non_latin_title": "vellichor",
         "author": "John Koenig",
@@ -1022,10 +1208,12 @@
         "speech": "noun",
         "video": null,
         "entry": 93,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [2,1,13]
     },
     {
-        "title": "vemedalen",
+        "id": 94,
+        "title": "vemf0dalen",
         "non_latin_title": "vemodalen",
         "author": "John Koenig",
         "authorPicture": "https://ideasofthevagabond.files.wordpress.com/2014/10/john-koenig.jpg",
@@ -1033,9 +1221,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=8ftDjebw8aA",
         "entry": 94,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [8,5]
     },
     {
+        "id": 95,
         "title": "waldosia",
         "non_latin_title": "waldosia",
         "author": "John Koenig",
@@ -1044,9 +1234,11 @@
         "speech": "noun",
         "video": null,
         "entry": 95,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [5,11]
     },
     {
+        "id": 96,
         "title": "xeno",
         "non_latin_title": "xeno",
         "author": "John Koenig",
@@ -1055,10 +1247,12 @@
         "speech": "noun",
         "video": null,
         "entry": 96,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [5,13,6]
     },
     {
-        "title": "ye yi",
+        "id": 97,
+        "title": "yu yi",
         "non_latin_title": "yu_yi",
         "author": "John Koenig",
         "authorPicture": "https://ideasofthevagabond.files.wordpress.com/2014/10/john-koenig.jpg",
@@ -1066,9 +1260,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=UuC-M-85ArY",
         "entry": 97,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [11,2,1]
     },
     {
+        "id": 98,
         "title": "zenosyne",
         "non_latin_title": "zenosyne",
         "author": "John Koenig",
@@ -1077,9 +1273,11 @@
         "speech": "noun",
         "video": "https://www.youtube.com/watch?v=SNgyEmYyQF4",
         "entry": 98,
-        "hasQuotes": 1
+        "hasQuotes": 1,
+        "tags": [2,3]
     },
     {
+        "id": 99,
         "title": "zielschmerz",
         "non_latin_title": "zielschmerz",
         "author": "John Koenig",
@@ -1088,9 +1286,11 @@
         "speech": "noun",
         "video": null,
         "entry": 99,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [9,6,12,11]
     },
     {
+        "id": 100,
         "title": "enouement",
         "non_latin_title": "enouement",
         "author": "John Koenig",
@@ -1099,6 +1299,7 @@
         "speech": "noun",
         "video": null,
         "entry": 100,
-        "hasQuotes": 0
+        "hasQuotes": 0,
+        "tags": [6,7,3]
     }]
 }
