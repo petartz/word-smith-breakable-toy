@@ -7,13 +7,6 @@ const cleanUserInput = formInput => {
     }
   })
 
-  formInput.non_latin_title = "unknown"
-  formInput.author = "unknown"
-  formInput.authorPicture = "unknown"
-  formInput.video = "unknown"
-  formInput.entry = 1
-  formInput.hasQuotes = 0
-
   return formInput
 }
 

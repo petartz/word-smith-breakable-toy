@@ -32,9 +32,11 @@ const FilterForm = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    await props.filterResults(clickedBoxes)
-
-
+    if (clickedBoxes.length >= 1){
+      await props.filterResults(clickedBoxes)
+    } else {
+      alert("You've selected no filters!")
+    }
   }
 
   let restrictedBox

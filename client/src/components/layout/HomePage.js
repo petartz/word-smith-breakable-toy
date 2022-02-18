@@ -2,12 +2,16 @@ import React, { useEffect, useState } from "react";
 import WordTile from "./WordTile";
 import FilterForm from "./FilterForm";
 import NewWordForm from "./NewWordForm";
+import translateServerErrors from "../../services/translateServerErrors.js"
+import ErrorList from "./ErrorList.js";
 
 const HomePage = (props) => {
   const [words, setWords] = useState([])
   const [showRestricted, setShowRestricted] = useState(false)
   const [restrictedSearch, setRestrictedSearch] = useState(false)
+  const [hideFilters, setHideFilters] = useState(false)
 
+  const [errors, setErrors] = useState([])
   const [currentUser, setCurrentUser] = useState(props.user)
 
 
@@ -61,13 +65,20 @@ const HomePage = (props) => {
         }),
         body: JSON.stringify(formPayLoad),
       })
-      if(!response.ok){
-        throw(new Error(`${response.status} ${response.statusText}`))
-      }
+      if (!response.ok) {
+        if (response.status === 422) {
+          const body = await response.json()
+          const newErrors = translateServerErrors(body.errors)
+          setErrors(newErrors)
+        }
+        const errorMessage = `${response.status} (${response.statusText})`
+        const error = new Error(errorMessage)
+        throw error
+    } else {
       const formBody = await response.json()
-      console.log(formBody)
-      // setWords([...words, formBody.word])
-
+      setWords([formBody.word, ...words])
+      setErrors([])
+      }
     } catch(error) {
       return console.error(`Error in fetch: ${error.message}`)
     }
@@ -84,10 +95,21 @@ const HomePage = (props) => {
     newForm = <NewWordForm addNewWord={addNewWord}/>
   }
 
+  let hiddenClass = "hidden"
+  const hide = () => {
+    if (!hideFilters){
+      return setHideFilters(true)
+    }
+    return setHideFilters(false)
+  }
+  if(hideFilters){
+    hiddenClass = ""
+  }
+
   return(
     <div>
-      <button className="button">Filters</button>
-        <div>
+      <button className="button" onClick={hide}>Filters</button>
+        <div className={hiddenClass}>
           <FilterForm
             filterResults={filterResults}
             showRestricted={showRestricted}
@@ -97,6 +119,7 @@ const HomePage = (props) => {
             setRestrictedSearch={setRestrictedSearch}/>
         </div>
         <div className="add-word-form">
+          <ErrorList errors={errors}/>
           {newForm}
         </div>
       <div>

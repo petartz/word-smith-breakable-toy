@@ -1,5 +1,6 @@
 import express from "express";
 import Word from "../../../models/Word.js"
+import Tag from "../../../models/Tag.js"
 import WordSerializer from "../../../serializers/WordSerializer.js";
 import homeFilterRouter from "./homeFilterRouter.js"
 import cleanUserInput from "../../../services/cleanUserInput.js";
@@ -24,8 +25,13 @@ homePageRouter.get("/", async (req,res) =>{
 homePageRouter.post('/', async (req,res) =>{
   const formInput = cleanUserInput(req.body)
 
+  for (let i=0; i<formInput.tags.length; i++){
+    formInput.tags[i] = (await Tag.query().where({name:`${formInput.tags[i]}`}))[0]
+  }
+
   try {
-    const newWord = await Word.query().insertAndFetch(formInput)
+    const newWord = await Word.query().insertGraphAndFetch(formInput, { relate: true })
+    console.log(newWord)
     return res.status(200).json({ word:newWord })
   } catch (error) {
     if (error instanceof ValidationError) {
