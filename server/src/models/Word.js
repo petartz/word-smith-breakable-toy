@@ -8,6 +8,7 @@ class Word extends Model{
   static get relationMappings(){
     const Tag = require("./Tag.js")
     const Categorization = require("./Categorization.js")
+    const User = require("./User.js")
 
     return{
       tags: {
@@ -28,6 +29,14 @@ class Word extends Model{
         join: {
           from: "words.id",
           to: "categorizations.wordId"
+        }
+      },
+      user: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: User,
+        join: {
+          from: "words.id",
+          to: "users.id"
         }
       }
     }

@@ -1,4 +1,3 @@
-import WordObjects from "../../../jsonParser/jsonParse.js";
 import Tag from "../../../models/Tag.js"
 
 class TagSeeder{
@@ -9,7 +8,7 @@ class TagSeeder{
       {id:2, name:"change"},
       {id:3, name:"future"},
       {id:4, name:"self"},
-      {id:5, name:"other"},
+      {id:5, name:"people"},
       {id:6, name:"happy"},
       {id:7, name:"sad"},
       {id:8, name:"angry"},

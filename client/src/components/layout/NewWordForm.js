@@ -1,63 +1,54 @@
 import React, { useState } from "react"
 
-const FilterForm = (props) => {
+const NewWordForm = props => {
+  const [newWord, setNewWord] = useState({
+    title: "",
+    definition: "",
+    speech: "",
+    tags: []
+  })
   const [clickedBoxes, setClickedBoxes] = useState([])
 
 
   const handleClick = (event) => {
     if (!(clickedBoxes.includes(event.currentTarget.name))){
       setClickedBoxes([...clickedBoxes, event.currentTarget.name])
-      if(clickedBoxes.length >= 1){
-        props.setShowRestricted(true)
-      }
-      return true
     } else {
       let newBoxes = clickedBoxes.filter(attribute => attribute != event.currentTarget.name)
       setClickedBoxes(newBoxes)
-      if(clickedBoxes.length < 3){
-        props.setShowRestricted(false)
-        props.setRestrictedSearch(false)
-      }
-      return false
     }
   }
 
-  const handleRestrict = (event) => {
-    if(!props.restrictedSearch){
-      props.setRestrictedSearch(true)
-    }else{
-      props.setRestrictedSearch(false)
-    }
+  const handleInputChange = event => {
+    setNewWord({
+      ...newWord,
+      [event.currentTarget.name]: event.currentTarget.value
+    })
+  }
+
+  const clearForm = () => {
+    setNewWord({
+      title: "",
+      definition: "",
+      speech: ""
+    })
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    if (clickedBoxes.length >= 1){
-      await props.filterResults(clickedBoxes)
-    } else {
-      alert("You've selected no filters!")
+    newWord.tags = clickedBoxes
+    const success = await props.addNewWord(newWord)
+    if(success){
+      clearForm()
     }
   }
 
-  let restrictedBox
-  if(props.showRestricted){
-    restrictedBox =
-            (<div>
-              <input htmlFor="restrict"
-                name="restrict"
-                type="checkbox"
-                onClick={handleRestrict} />
-                <label>Restrict the Search!</label>
-            </div>)
-  }
-
-
-
-  return (
-    <div className="filter-form">
-      <form htmlFor="filter-form" onSubmit={handleSubmit}>
-        <label> Filter results by their tags!</label>
-          {restrictedBox}
+  return(
+    <div>
+      <h1>Add New Word!</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="filters">
+          <p>Tag your word</p>
           <div className="temporal">
             <ul>
               <input htmlFor="past" name="past" type="checkbox" onClick={handleClick} />
@@ -100,11 +91,45 @@ const FilterForm = (props) => {
               <label>Connected</label>
             </ul>
           </div>
+        </div>
+        <label htmlFor="title">
+          Title:
+          <input
+            type="text"
+            id="title"
+            name="title"
+            onChange={handleInputChange}
+            value={newWord.title}/>
+        </label>
 
-          <input htmlFor="submit" value="Filter Results!" type="submit"/>
+        <label htmlFor="definition">
+          Definition:
+          <input
+            type="text"
+            id="definition"
+            name="definition"
+            onChange={handleInputChange}
+            value={newWord.definition}/>
+        </label>
+
+        <label htmlFor="speech">
+          Part of speech:
+          <select
+            id="speech"
+            name="speech"
+            onChange={handleInputChange}
+            value={newWord.speech}>
+              <option value="">Designate the part of speech</option>
+              <option value="noun">Noun</option>
+              <option value="adjective">Adjective</option>
+              <option value="verb">Verb</option>
+          </select>
+        </label>
+
+        <input className="submit-button" type="submit"/>
       </form>
     </div>
   )
 }
 
-export default FilterForm
+export default NewWordForm
