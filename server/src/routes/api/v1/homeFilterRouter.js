@@ -10,6 +10,7 @@ homeFilterRouter.post("/", async (req,res)=>{
     const restriction = req.body.restriction
 
     const serializedWords = await WordSerializer.getDetails(tags, restriction)
+
     return res.status(200).json({ words:serializedWords })
   } catch(error) {
     return res.status(500).json({ errors:error })

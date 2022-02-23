@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { hot } from "react-hot-loader/root";
-
 import getCurrentUser from "../services/getCurrentUser";
 import "../assets/scss/main.scss";
 import RegistrationForm from "./registration/RegistrationForm";
 import SignInForm from "./authentication/SignInForm";
 import TopBar from "./layout/TopBar";
 import HomePage from "./layout/HomePage.js"
+import AuthenticatedRoute from "./authentication/AuthenticatedRoute";
+import UserProfile from "./layout/UserProfile.js"
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -24,10 +25,19 @@ const App = (props) => {
     fetchCurrentUser()
   }, [])
 
+  // console.log(currentUser)
+
   return (
     <Router>
       <TopBar user={currentUser} />
       <Switch>
+        <AuthenticatedRoute
+          exact={true}
+          path= "/profile/:id"
+          user={currentUser}
+          component={UserProfile}
+        />
+
         <Route exact path="/">
           <HomePage user={currentUser}/>
         </Route>
