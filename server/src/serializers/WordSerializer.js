@@ -4,7 +4,7 @@ import Helper from "./helperFunctions.js"
 
 class WordSerializer{
   static getSummary(words){
-    const allowedAttributes = ["id", "title", "definition", "speech"]
+    const allowedAttributes = ["id", "title", "definition", "speech", "userId"]
 
     const serializedWords = words.map(word => {
       let serializedWord = {}
@@ -50,7 +50,7 @@ class WordSerializer{
       }
     }
 
-    const allowedAttributes = ["id", "title", "definition", "speech"]
+    const allowedAttributes = ["id", "title", "definition", "speech", "userId"]
     const serializedWords = wordList.map(word => {
       let serializedWord = {}
       for(const attribute of allowedAttributes){
