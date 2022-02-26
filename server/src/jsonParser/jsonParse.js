@@ -1,7 +1,7 @@
 import fs from 'fs'
 
-const wordsPathTagged = "/Users/Pete/challenges/word-smith-breakable-toy/server/DictionaryOfSorrowsAPITagged.json"
-const wordsPathPure = "/Users/Pete/challenges/word-smith-breakable-toy/server/DictionaryOfSorrowsAPI.json"
+const wordsPathTagged = "../server/DictionaryOfSorrowsAPITagged.json"
+const wordsPathPure = "../server/DictionaryOfSorrowsAPI.json"
 
 class WordObjects {
     static parseObjectsTagged(){

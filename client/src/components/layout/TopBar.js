@@ -3,15 +3,23 @@ import { Link } from "react-router-dom";
 import SignOutButton from "../authentication/SignOutButton";
 import UserProfileButton from "../authentication/UserProfileButton";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faToolbox } from "@fortawesome/free-solid-svg-icons"
+
+import favicon from "../../../public/favicon.jpg"
+
 const TopBar = ({ user }) => {
 
-  console.log(user)
+  const homeRedirect = () => {
+    location.href = "/home"
+  }
+
   const unauthenticatedListItems = [
     <li key="sign-in">
-      <Link to="/user-sessions/new">Sign In</Link>
+      <Link className="link" to="/user-sessions/new">Sign In</Link>
     </li>,
     <li key="sign-up">
-      <Link to="/users/new" className="button">
+      <Link className="link" to="/users/new" className="link">
         Sign Up
       </Link>
     </li>,
@@ -30,9 +38,11 @@ const TopBar = ({ user }) => {
     <div className="top-bar">
       <div className="top-bar-left">
         <ul className="menu">
-          <li className="menu-text">App</li>
-          <li>
-            <Link to="/">Home</Link>
+          <li className="logo">
+            <img src= {favicon} alt="icon" onClick={homeRedirect}></img>
+          </li>
+          <li className="about">
+            <Link className="link" to="/">About</Link>
           </li>
         </ul>
       </div>

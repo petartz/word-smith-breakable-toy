@@ -9,6 +9,7 @@ import TopBar from "./layout/TopBar";
 import HomePage from "./layout/HomePage.js"
 import AuthenticatedRoute from "./authentication/AuthenticatedRoute";
 import UserProfile from "./layout/UserProfile.js"
+import LandingPage from "./layout/LandingPage";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -25,11 +26,14 @@ const App = (props) => {
     fetchCurrentUser()
   }, [])
 
-  // console.log(currentUser)
-
   return (
     <Router>
       <TopBar user={currentUser} />
+
+      <Route exact path="/">
+        <LandingPage/>
+      </Route>
+
       <Switch>
         <AuthenticatedRoute
           exact={true}
@@ -37,8 +41,7 @@ const App = (props) => {
           user={currentUser}
           component={UserProfile}
         />
-
-        <Route exact path="/">
+        <Route exact path="/home">
           <HomePage user={currentUser}/>
         </Route>
         <Route exact path="/users/new" component={RegistrationForm} />

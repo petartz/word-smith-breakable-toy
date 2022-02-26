@@ -1,0 +1,18 @@
+import React from "react"
+import { Link } from "react-router-dom";
+
+const LandingPage = props => {
+
+  const linkToHome = <Link className="main-page-redirect" to="/home">Go to the Main Page!</Link>
+
+  return(
+    <div className="outer-container">
+      <section className='main'>
+        <h1>Welcome to WordSmith</h1>
+        {linkToHome}
+        </section>
+    </div>
+  )
+}
+
+export default LandingPage

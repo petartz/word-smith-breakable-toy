@@ -23,7 +23,7 @@ const UserProfileButton = (props) => {
 
   return (
     <p>
-      <Link to= {`/profile/${props.user.id}`}>
+      <Link className="profilebtn link" to={`/profile/${props.user.id}`}>
         Profile
       </Link>
     </p>

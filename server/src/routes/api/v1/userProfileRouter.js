@@ -5,11 +5,11 @@ import WordSerializer from "../../../serializers/WordSerializer.js";
 
 const userProfileRouter = new express.Router()
 
+
+
 userProfileRouter.get("/:id", async (req,res) =>{
   try{
     const id = req.params.id
-    // console.log(id)
-
     const words = await Word.query().where({userId:id}).orderBy("id", "desc")
     const serializedWords = WordSerializer.getSummary(words)
     return res.status(200).json({ words:serializedWords })

@@ -44,7 +44,7 @@ const NewWordForm = props => {
   }
 
   return(
-    <div>
+    <div className="word-tile">
       <h1>Add New Word!</h1>
       <form onSubmit={handleSubmit}>
         <div className="filters">
