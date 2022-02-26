@@ -1,6 +1,9 @@
 @import "./foundation/settings";
 @import "~foundation-sites/scss/foundation";
 @import './stylesheets/Colors.scss';
+@import "./stylesheets/LandingPage.scss";
+@import "./stylesheets//HomePage";
+@import "./stylesheets/ProfilePage";
 
 @include foundation-everything;
 // place global css here
@@ -10,40 +13,14 @@
   box-sizing: border-box;
 }
 
-.word-tile {
-  border: 2px solid $beige;
-  border-radius: 0.5em;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  padding: 2em;
-  margin: auto;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  background-color: $light-beige;
-  max-width: 40%;
-}
-.button {
-  margin-left: 30%;
+// html{
+//   background-color: black;
+// }
+
+body{
+  background-color: #eccfb2;
 }
 
-.hidden {
-  visibility: hidden;
-}
-
-.add-word-form{
-  border: 2px solid $beige;
-  border-radius: 0.5em;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  padding: 2em;
-  margin: auto;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  background-color: $light-beige;
-  max-width: 40%;
-}
-
-.filter-form {
-  text-align: center;
-}
 
 :root {
   -moz-tab-size: 4;

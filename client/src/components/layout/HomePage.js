@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import translateServerErrors from "../../services/translateServerErrors.js"
 
-import { deleteYourWord } from "./Requests.js";
+import { deleteYourWord, filterResults } from "./Requests.js";
 
 import WordTile from "./WordTile";
 import FilterForm from "./FilterForm";
@@ -12,7 +12,9 @@ const HomePage = (props) => {
   const [words, setWords] = useState([])
   const [showRestricted, setShowRestricted] = useState(false)
   const [restrictedSearch, setRestrictedSearch] = useState(false)
-  const [hideFilters, setHideFilters] = useState(false)
+
+  const [filters, setFilters] = useState(false)
+  const [addWord, setAddWord] = useState(false)
 
   const [errors, setErrors] = useState([])
   const [editErrors, setEditErrors] = useState([])
@@ -36,27 +38,20 @@ const HomePage = (props) => {
   }, [])
 
 
-  const filterResults = async (formPayLoad) => {
-    const userObject = { tags:formPayLoad, restriction:restrictedSearch }
-    try{
-      const response = await fetch("/api/v1/home/filter", {
-        method: 'POST',
-        headers: new Headers ({
-          'Content-Type': 'application/json',
-        }),
-        body: JSON.stringify(userObject),
-      })
-      if(!response.ok){
-        throw(new Error(`${response.status} ${response.statusText}`))
-      }
-      const formBody = await response.json()
-      console.log(formBody.words)
-
-    setWords(formBody.words)
-    } catch(error) {
-      return console.error(`Error in fetch: ${error.message}`)
-    }
+  const filter = async (tags) => {
+    const words = await filterResults(tags, restrictedSearch)
+    console.log(words)
+    setWords(words)
   }
+
+  const wordDelete = (wordId) => {
+    deleteYourWord(wordId)
+
+    const updatedWords = words.filter(word => word.id != wordId)
+    setWords(updatedWords)
+  }
+
+
 
   const addNewWord = async (formPayLoad) => {
     formPayLoad.userId = props.user.id
@@ -87,15 +82,6 @@ const HomePage = (props) => {
       return console.error(`Error in fetch: ${error.message}`)
     }
   }
-
-
-  const wordDelete = (wordId) => {
-    deleteYourWord(wordId)
-
-    const updatedWords = words.filter(word => word.id != wordId)
-    setWords(updatedWords)
-  }
-
 
   const editYourWord = async (editedWord) => {
     try {
@@ -147,42 +133,61 @@ const HomePage = (props) => {
   })
 
   let newForm = "Sign in to add new words!"
-  if (props.user){
-    newForm = <NewWordForm addNewWord={addNewWord}/>
+  if (props.user && addWord){
+    newForm = <NewWordForm className="add-word-form" addNewWord={addNewWord}/>
+  } else {
+    newForm = ""
+  }
+  const hideAdd = () => {
+    if(addWord){
+      setAddWord(false)
+    } else {
+      setAddWord(true)
+    }
   }
 
-  let hiddenClass = "hidden"
-  const hide = () => {
-    if (!hideFilters){
-      return setHideFilters(true)
+
+
+  // Filters showing on click (not using state because asynchronous updating was slow)
+  let filterContainer
+  const hideFilters = () => {
+    if(filters){
+      setFilters(false)
+      setShowRestricted(false)
+    } else {
+      setFilters(true)
     }
-    return setHideFilters(false)
   }
-  if(hideFilters){
-    hiddenClass = ""
+  if(filters){
+    filterContainer = <FilterForm
+    filterResults={filter}
+    showRestricted={showRestricted}
+    setShowRestricted={setShowRestricted}
+    restrictedSearch={restrictedSearch}
+    setRestrictedSearch={setRestrictedSearch}/>
+  } else {
+    filterContainer = ""
   }
 
   return(
-    <div>
-      <button className="button" onClick={hide}>Filters</button>
-        <div className={hiddenClass}>
-          <FilterForm
-            filterResults={filterResults}
-            showRestricted={showRestricted}
-            setShowRestricted={setShowRestricted}
-
-            restrictedSearch={restrictedSearch}
-            setRestrictedSearch={setRestrictedSearch}/>
-        </div>
-        <div className="add-word-form">
-          <ErrorList errors={errors}/>
-          {newForm}
-        </div>
+    <div className="home-main">
+      <div className="home-buttons">
+        <button className="add-btn link" onClick={hideAdd}>Add Word</button>
+        <button className="filter-btn link" onClick={hideFilters}>Filters</button>
+      </div>
+      <div className = "overlay" id="filter-form">
+        {filterContainer}
+      </div>
+      <div className="" id="add-word-form">
+        <ErrorList errors={errors}/>
+        {newForm}
+      </div>
       <div>
       {wordTiles}
       </div>
     </div>
   )
+
 }
 
 export default HomePage

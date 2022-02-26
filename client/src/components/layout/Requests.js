@@ -25,8 +25,30 @@ const deleteYourWord = async (wordId) => {
   }
 }
 
+const filterResults = async (formPayLoad, restrictedSearch) => {
+  const userObject = { tags:formPayLoad, restriction:restrictedSearch }
+  try{
+    const response = await fetch("/api/v1/home/filter", {
+      method: 'POST',
+      headers: new Headers ({
+        'Content-Type': 'application/json',
+      }),
+      body: JSON.stringify(userObject),
+    })
+    if(!response.ok){
+      throw(new Error(`${response.status} ${response.statusText}`))
+    }
+    const formBody = await response.json()
+    console.log(formBody.words)
+    return formBody.words
+
+  } catch(error) {
+    return console.error(`Error in fetch: ${error.message}`)
+  }
+}
 
 
 
 
-export {deleteYourWord}
+
+export { deleteYourWord, filterResults }

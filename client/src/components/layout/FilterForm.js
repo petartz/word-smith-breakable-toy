@@ -56,7 +56,7 @@ const FilterForm = (props) => {
   return (
     <div className="filter-form">
       <form htmlFor="filter-form" onSubmit={handleSubmit}>
-        <label> Filter results by their tags!</label>
+        <label className="filter-label"> Filter results by their tags!</label>
           {restrictedBox}
           <div className="temporal">
             <ul>

@@ -1,0 +1,88 @@
+.word-tile {
+  border: 2px solid $beige;
+  border-radius: 0.5em;
+  box-shadow: rgb(222, 205, 193) 0px 5px 15px;
+  padding: 2em;
+  margin: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background-color: #f9f6ef;
+  max-width: 40%;
+}
+.btn {
+  margin-left: 30%;
+}
+
+.home-buttons{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 3em;
+
+  .filter-btn {
+    font-size: x-large;
+    margin-left: 3em;
+    // margin-left: 65%;
+    padding: .75em;
+    border-radius: 1em;
+    background-color: #EDE0D4;
+    border: solid 1px rgb(209, 163, 111);
+    border-radius: 5px;
+  }
+  .add-btn {
+    font-size: x-large;
+    margin-left: -1.5em;
+    margin-right: 3em;
+    padding: .75em;
+    border-radius: 1em;
+    background-color: #EDE0D4;
+    border: solid 1px rgb(209, 163, 111);
+    border-radius: 5px;
+  }
+}
+
+.filter-label{
+  font-size: x-large;
+  font-weight: 900;
+}
+
+.home-main {
+  position: relative
+}
+
+.overlay {
+  position: absolute;
+  z-index: 9999;
+  top: 5em;
+  left:10em;
+  right: 10em;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.add-word-form{
+  border: 2px solid $beige;
+  border-radius: 0.5em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 2em;
+  margin: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background-color: #f9f6ef;
+  max-width: 40%;
+}
+
+.filter-form {
+  text-align: center;
+  border-radius: 1em;
+  background-color: #EDE0D4;
+  border: solid 1px rgb(209, 163, 111);
+  border-radius: 5px;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 1em;
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
