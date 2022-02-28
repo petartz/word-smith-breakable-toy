@@ -6,10 +6,11 @@
  * @param {Knex} knex
  */
 exports.up = async (knex) => {
-  return knex.schema.createTable("tags", table=>{
+  return knex.schema.createTable("folders", table =>{
     table.bigIncrements("id")
     table.string("name").notNullable()
-    table.bigInteger("userId")
+
+    table.integer("userId")
     .notNullable()
     .unsigned()
     .index()
@@ -24,5 +25,5 @@ exports.up = async (knex) => {
  * @param {Knex} knex
  */
 exports.down = (knex) => {
-  return knex.schema.dropTableIfExists("tags")
+  return knex.schema.dropTableIfExists("folders")
 }

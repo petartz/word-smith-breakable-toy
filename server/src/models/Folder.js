@@ -1,8 +1,8 @@
 const Model = require("./Model.js")
 
-class Tag extends Model{
+class Folder extends Model{
   static get tableName(){
-    return("tags")
+    return("folders")
   }
 
   static get relationMappings() {
@@ -11,34 +11,40 @@ class Tag extends Model{
     const User = require("./User.js")
 
     return {
-      words: {
+      users: {
+        relation: Model.ManyToManyRelation,
+        modelClass: User,
+        join: {
+          from: "folders.id",
+          through:{
+            from: "dictionaries.folderId",
+            to: "dictionaries.userId"
+          },
+          to: "users.id"
+        }
+      },
+      words:{
         relation: Model.ManyToManyRelation,
         modelClass: Word,
         join: {
-          from: "tags.id",
-          through:{
-            from: "categorizations.tagId",
-            to: "categorizations.wordId"
+          from: "folders.id",
+          through: {
+            from: "dictionaries.folderId",
+            to: "dictionaries.wordId"
           },
           to: "words.id"
         }
       },
-      categorizations: {
-        relation: Model.HasManyRelation,
-        modelClass: Categorization,
-        join: {
-          from: "tags.id",
-          to: "categorizations.tagId"
-        }
-      },
+
       user: {
         relation: Model.BelongsToOneRelation,
-        modeClass: User,
+        modelClass: User,
         join: {
-          from: "tags.id",
+          from: "folders.id",
           to: "users.id"
         }
       }
+
     }
   }
 
@@ -47,11 +53,12 @@ class Tag extends Model{
       type:"object",
       required:["name"],
       properties:{
-        name: { type:"string" }
+        name: { type:"string" },
+
       }
     }
   }
 
 }
 
-module.exports = Tag
+module.exports = Folder

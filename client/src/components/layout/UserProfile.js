@@ -2,9 +2,15 @@ import React, { useState, useEffect } from "react"
 import WordTile from "./WordTile.js"
 import { deleteYourWord } from "./Requests.js"
 
+import CreatableSelect from 'react-select/creatable';
+
 const UserProfile = props => {
   const [userWords, setUserWords] = useState([])
   const [wordCloud, setWordCloud] = useState()
+
+  const [folderOptions, setFolderOptions] = useState([])
+  const [currentFolder, setCurrentFolder] = useState("")
+
 
   const fetchWordData = async () => {
     try{
@@ -19,12 +25,12 @@ const UserProfile = props => {
     }
   }
   useEffect(() => {
-    fetchWordData()
+    fetchWordData(),
+    getUserDicts()
   }, [])
 
   const wordDelete = (wordId) => {
     deleteYourWord(wordId)
-
     const updatedWords = userWords.filter(word => word.id != wordId)
     setUserWords(updatedWords)
   }
@@ -87,32 +93,116 @@ const UserProfile = props => {
     }
   }
 
-  const wordTiles = userWords.map(word => {
-    return <WordTile
-    key= {word.id}
-    word={word}
-    deleteYourWord={wordDelete}
-    // editYourWord ={editYourWord}
-    user={props.user}
 
-    // currentWord={currentWord}
-    // setCurrentWord={setCurrentWord}
+  const getUserDicts = async () => {
+    try{
+      const response = await fetch(`/api/v1/profile/${props.user.id}/dictionaries`)
+      if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`)
+      }
+      const body = await response.json()
+      setFolderOptions(body.folders)
+    } catch (error) {
+      return console.error(`Error in fetch: ${error.message}`)
+    }
+  }
 
-    // editErrors={editErrors}
-    />
-  })
 
+  // const wordTiles = userWords.map(word => {
+  //   return <WordTile
+  //   key= {word.id}
+  //   word={word}
+  //   deleteYourWord={wordDelete}
+  //   // editYourWord ={editYourWord}
+  //   user={props.user}
 
+  //   // currentWord={currentWord}
+  //   // setCurrentWord={setCurrentWord}
+
+  //   // editErrors={editErrors}
+  //   />
+  // })
+
+  const createDictionary = async (formPayLoad) => {
+    const folderObject = {
+      name: formPayLoad,
+      userId: props.user.id
+    }
+    try{
+      const response = await fetch(`/api/v1/profile/${props.user.id}/dictionaries`, {
+        method: 'POST',
+        headers: new Headers ({
+          'Content-Type': 'application/json',
+        }),
+        body: JSON.stringify(folderObject),
+      })
+      if (!response.ok) {
+        const errorMessage = `${response.status} (${response.statusText})`
+        const error = new Error(errorMessage)
+        throw error
+    }
+    } catch(error) {
+      return console.error(`Error in fetch: ${error.message}`)
+    }
+  }
+
+  const getOneDict = async (dictName) => {
+    try{
+      const response = await fetch(`/api/v1/profile/${props.user.id}/dictionaries/${dictName}`)
+      if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`)
+      }
+      const body = await response.json()
+      setCurrentFolder(body.folder)
+      console.log(body.folder)
+      console.log(currentFolder)
+    } catch (error) {
+      return console.error(`Error in fetch: ${error.message}`)
+    }
+  }
+
+  const handleDictType = (event) => {
+    if(event === null){
+    } else if (event.__isNew__) {
+      createDictionary(event.value)
+      setFolderOptions([...folderOptions, { label: event.value, value: event.value }])
+      console.log(event.__isNew__)
+    } else {
+      getOneDict(event.value)
+    }
+  }
 
   return (
-    <div>
-      <button className="wordCloud-button link" onClick={wordCloudGen}>Generate Word Cloud</button>
-      <div className="word-cloud" id="word-cloud">
+    <>
+      <div className="grid-x">
+        <div className="cell small-6">
+          <div className="profile-left">
+              <div className="words">
+                {/* {wordTiles} */}
+              </div>
+              <div className="dictionaries">
+                <CreatableSelect
+                  placeholder={"Select Dictionary or Create New"}
+                  className="select"
+                  isClearable
+                  onChange={handleDictType}
+                  options={folderOptions}
+                />
+              </div>
+            </div>
+            </div>
+
+        <div className="cell small-6">
+          <div className="profile-right">
+            <div className="cloud-button">
+              <button className="wordCloud-button" onClick={wordCloudGen}>Generate Word Cloud</button>
+            </div>
+            <div className="word-cloud" id="word-cloud"/>
+          </div>
+        </div>
       </div>
-      <div>
-        {wordTiles}
-      </div>
-    </div>
+    </>
+
   )
 }
 

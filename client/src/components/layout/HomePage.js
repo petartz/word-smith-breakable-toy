@@ -14,16 +14,19 @@ const HomePage = (props) => {
   const [restrictedSearch, setRestrictedSearch] = useState(false)
 
   const [filters, setFilters] = useState(false)
-  const [addWord, setAddWord] = useState(false)
+  const [addWordToggle, setAddWordToggle] = useState(false)
 
   const [errors, setErrors] = useState([])
   const [editErrors, setEditErrors] = useState([])
   const [currentUser, setCurrentUser] = useState(props.user)
   const [currentWord, setCurrentWord] = useState(null)
 
+  const [folderOptions, setFolderOptions] = useState()
+
+
   const fetchWordData = async () => {
     try{
-      const response = await fetch("/api/v1/home")
+      const response = await fetch(`/api/v1/home`)
       if (!response.ok) {
         throw new Error(`${response.status} ${response.statusText}`)
       }
@@ -33,9 +36,26 @@ const HomePage = (props) => {
       return console.error(`Error in fetch: ${error.message}`)
     }
   }
+  const getUserDicts = async () => {
+    if (props.user){
+      console.log(props.user.id)
+      try{
+        const response = await fetch(`/api/v1/profile/${props.user.id}/dictionaries`)
+        if (!response.ok) {
+          throw new Error(`${response.status} ${response.statusText}`)
+        }
+        const body = await response.json()
+        setFolderOptions(body.folders)
+      } catch (error) {
+        return console.error(`Error in fetch: ${error.message}`)
+      }
+    }
+  }
   useEffect(() => {
-    fetchWordData()
-  }, [])
+      fetchWordData(),
+      getUserDicts()
+    }, [props.user])
+
 
 
   const filter = async (tags) => {
@@ -50,8 +70,6 @@ const HomePage = (props) => {
     const updatedWords = words.filter(word => word.id != wordId)
     setWords(updatedWords)
   }
-
-
 
   const addNewWord = async (formPayLoad) => {
     formPayLoad.userId = props.user.id
@@ -125,6 +143,8 @@ const HomePage = (props) => {
     editYourWord ={editYourWord}
     user={props.user}
 
+    folderOptions={folderOptions}
+
     currentWord={currentWord}
     setCurrentWord={setCurrentWord}
 
@@ -133,16 +153,21 @@ const HomePage = (props) => {
   })
 
   let newForm = "Sign in to add new words!"
-  if (props.user && addWord){
+  let signInToAdd = ""
+  if (props.user && addWordToggle){
     newForm = <NewWordForm className="add-word-form" addNewWord={addNewWord}/>
-  } else {
+    signInToAdd = ""
+  } else if(props.user && !addWordToggle){
     newForm = ""
+  } else {
+    signInToAdd = "word-tile"
   }
+
   const hideAdd = () => {
-    if(addWord){
-      setAddWord(false)
+    if(addWordToggle){
+      setAddWordToggle(false)
     } else {
-      setAddWord(true)
+      setAddWordToggle(true)
     }
   }
 
@@ -172,18 +197,24 @@ const HomePage = (props) => {
   return(
     <div className="home-main">
       <div className="home-buttons">
-        <button className="add-btn link" onClick={hideAdd}>Add Word</button>
-        <button className="filter-btn link" onClick={hideFilters}>Filters</button>
+        <button className="add-btn" onClick={hideAdd}>Add Word</button>
+        <button className="filter-btn" onClick={hideFilters}>Filters</button>
       </div>
       <div className = "overlay" id="filter-form">
         {filterContainer}
       </div>
-      <div className="" id="add-word-form">
-        <ErrorList errors={errors}/>
-        {newForm}
-      </div>
-      <div>
-      {wordTiles}
+      <div className="grid-x home-elements">
+        <div className="cell small-4">
+          Placeholder
+
+        </div>
+        <div className="cell small-8 word-tile-wrapper">
+          <div className={signInToAdd} id="add-word-form">
+            <ErrorList errors={errors}/>
+            {newForm}
+          </div>
+          {wordTiles}
+        </div>
       </div>
     </div>
   )

@@ -9,6 +9,7 @@ class Word extends Model{
     const Tag = require("./Tag.js")
     const Categorization = require("./Categorization.js")
     const User = require("./User.js")
+    const Folder = require("./Folder.js")
 
     return{
       tags: {
@@ -21,6 +22,18 @@ class Word extends Model{
             to: "categorizations.tagId"
           },
           to: "tags.id"
+        }
+      },
+      folders:{
+        relation: Model.ManyToManyRelation,
+        modelClass: Folder,
+        join: {
+          from: "words.id",
+          through: {
+            from: "dictionaries.wordId",
+            to: "dictionaries.folderId"
+          },
+          to: "folders.id"
         }
       },
       categorizations: {
@@ -38,7 +51,8 @@ class Word extends Model{
           from: "words.id",
           to: "users.id"
         }
-      }
+      },
+
     }
   }
 
@@ -56,7 +70,6 @@ class Word extends Model{
         video: { type: ["string", null] },
         entry: { type: "integer" },
         hasQuotes: { type: ["integer", null] },
-        tags: { type: "array" }
       }
     }
   }

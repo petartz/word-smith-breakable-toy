@@ -1,11 +1,14 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons"
 import EditForm from "./EditForm.js"
 
+import Select from 'react-select';
+
 const WordTile = (props) => {
 
   const { id, title, definition, speech, userId } = props.word
+  const [currentFolder, setCurrentFolder] = useState("")
 
   let deleteButton = null
   let editButton = null
@@ -16,6 +19,22 @@ const WordTile = (props) => {
   }
   const handleEditClick = async () => {
     (props.currentWord === id) ? props.setCurrentWord(null) : props.setCurrentWord(id)
+  }
+
+
+  const addToOneDict = async (dictName) => {
+    try{
+      const response = await fetch(`/api/v1/profile/${userId}/dictionaries/${dictName}`)
+      if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`)
+      }
+      const body = await response.json()
+      setCurrentFolder(body.folder)
+      console.log(body.folder)
+      console.log(currentFolder)
+    } catch (error) {
+      return console.error(`Error in fetch: ${error.message}`)
+    }
   }
 
 
@@ -32,7 +51,7 @@ const WordTile = (props) => {
       editButton =
         <div>
           <button
-            className="button"
+            className="myButton"
             onClick={handleEditClick}>
             Edit Your Word
           </button>
@@ -62,13 +81,22 @@ const WordTile = (props) => {
       <div>
         {deleteButton}
       </div>
-      <p>Word: {title}</p>
-      <p>Definition: {definition}</p>
-      <p>Part of Speech: {speech}</p>
+      <div className="word-properties">
+        <p className="word-title">{title} ({speech[0]}.)</p>
+        <p className="word-def">{definition}</p>
+      </div>
       <div>
         {editButton}
         {showEditForm}
       </div>
+      <div>
+        <Select
+          options = {props.folderOptions}
+          placeholder = "Add to your dictionary"
+          onChange={addToOneDict}
+          />
+      </div>
+
     </div>
   )
 
