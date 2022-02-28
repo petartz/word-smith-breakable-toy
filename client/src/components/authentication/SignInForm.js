@@ -89,7 +89,7 @@ const SignInForm = () => {
           </label>
         </div>
         <div>
-          <input type="submit" className="button" value="Sign In" />
+          <input type="submit" className="link sign-in" value="Sign In" />
         </div>
       </form>
     </div>

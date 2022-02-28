@@ -8,11 +8,11 @@ import UserSeeder from "./migrations/seeders/UserSeeder.js"
 class Seeder {
   static async seed() {
     // include individual seed commands here
-    console.log("Seeding tags...")
-    await TagSeeder.seed()
-
     console.log("Seeding first user...")
     await UserSeeder.seed()
+
+    console.log("Seeding tags...")
+    await TagSeeder.seed()
 
     console.log("Seeding words...")
     await WordSeeder.seed()

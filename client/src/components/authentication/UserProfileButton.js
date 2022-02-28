@@ -11,16 +11,6 @@ const UserProfileButton = (props) => {
     setShouldRedirect(true)
   }
 
-  // if (shouldRedirect) {
-  //   location.href = `/profile/${props.user.id}`;
-  // }
-
-  // return (
-  //   <button type="button" className="button" onClick={userProfile}>
-  //   Profile
-  // </button>
-  // )
-
   return (
     <p>
       <Link className="profilebtn link" to={`/profile/${props.user.id}`}>

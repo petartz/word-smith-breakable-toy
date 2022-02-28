@@ -3,5 +3,7 @@ const User = require("./User.js")
 const Word = require("./Word.js")
 const Tag = require("./Tag.js")
 const Categorization = require("./Categorization.js")
+const Folder = require("./Folder.js")
+const Dictionary = require("./Dictionary.js")
 
-module.exports = {User, Word, Tag, Categorization};
+module.exports = {User, Word, Tag, Categorization, Folder, Dictionary};

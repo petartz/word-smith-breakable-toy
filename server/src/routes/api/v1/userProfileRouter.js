@@ -2,10 +2,12 @@ import express from "express";
 import Word from "../../../models/Word.js"
 import Tag from "../../../models/Tag.js"
 import WordSerializer from "../../../serializers/WordSerializer.js";
+import dictionaryRouter from "./dictionaryRouter.js"
 
 const userProfileRouter = new express.Router()
 
 
+userProfileRouter.use("/:id/dictionaries", dictionaryRouter)
 
 userProfileRouter.get("/:id", async (req,res) =>{
   try{

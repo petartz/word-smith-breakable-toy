@@ -1,16 +1,17 @@
 .word-tile {
-  border: 2px solid $beige;
   border-radius: 0.5em;
-  box-shadow: rgb(222, 205, 193) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 2em;
   margin: auto;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  background-color: #f9f6ef;
-  max-width: 40%;
+  margin-bottom: 2em;
+  background-color: #ffffff;
 }
 .btn {
   margin-left: 30%;
+}
+
+.home-elements{
+  margin: 2em;
 }
 
 .home-buttons{
@@ -18,11 +19,9 @@
   justify-content: center;
   display: flex;
   margin-top: 3em;
-
   .filter-btn {
-    font-size: x-large;
+    font-size: large;
     margin-left: 3em;
-    // margin-left: 65%;
     padding: .75em;
     border-radius: 1em;
     background-color: #EDE0D4;
@@ -30,8 +29,7 @@
     border-radius: 5px;
   }
   .add-btn {
-    font-size: x-large;
-    margin-left: -1.5em;
+    font-size: large;
     margin-right: 3em;
     padding: .75em;
     border-radius: 1em;
@@ -39,6 +37,13 @@
     border: solid 1px rgb(209, 163, 111);
     border-radius: 5px;
   }
+
+  .add-btn:hover, .filter-btn:hover {
+    color:rgb(255, 0, 0);
+    background-color: #e9d6c3;
+  }
+
+
 }
 
 .filter-label{
@@ -53,8 +58,8 @@
 .overlay {
   position: absolute;
   z-index: 9999;
-  top: 5em;
-  left:10em;
+  top: 3em;
+  left:24em;
   right: 10em;
 }
 

@@ -11,7 +11,7 @@ import favicon from "../../../public/favicon.jpg"
 const TopBar = ({ user }) => {
 
   const homeRedirect = () => {
-    location.href = "/home"
+    location.href = `/home`
   }
 
   const unauthenticatedListItems = [
@@ -19,7 +19,7 @@ const TopBar = ({ user }) => {
       <Link className="link" to="/user-sessions/new">Sign In</Link>
     </li>,
     <li key="sign-up">
-      <Link className="link" to="/users/new" className="link">
+      <Link className="link" to="/users/new">
         Sign Up
       </Link>
     </li>,
@@ -36,16 +36,16 @@ const TopBar = ({ user }) => {
 
   return (
     <div className="top-bar">
+      <img className="logo" src= {favicon} alt="icon" onClick={homeRedirect}></img>
+
       <div className="top-bar-left">
         <ul className="menu">
-          <li className="logo">
-            <img src= {favicon} alt="icon" onClick={homeRedirect}></img>
-          </li>
           <li className="about">
             <Link className="link" to="/">About</Link>
           </li>
         </ul>
       </div>
+
       <div className="top-bar-right">
         <ul className="menu">{user ? authenticatedListItems : unauthenticatedListItems}</ul>
       </div>
