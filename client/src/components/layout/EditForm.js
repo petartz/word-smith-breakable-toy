@@ -11,8 +11,6 @@ const EditForm = props => {
     tags: []
   })
 
-
-
   const [clickedBoxes, setClickedBoxes] = useState([])
 
   const handleClick = (event) => {
@@ -28,6 +26,9 @@ const EditForm = props => {
     event.preventDefault()
     editedWord.tags = clickedBoxes
     const success = await props.editYourWord(editedWord)
+    if(success){
+      props.setEditSuccess(success)
+    }
   }
 
   const handleInputChange = event => {
@@ -39,11 +40,11 @@ const EditForm = props => {
 
 
   return(
-    <div>
+    <div className="edit-form-container">
+      <h3>Edit Your Word!</h3>
       <div>
         <ErrorList errors={props.editErrors} />
       </div>
-      <h1>Edit Your Word!</h1>
       <form onSubmit={handleSubmit}>
         <div className="filters">
           <p>Tag your word</p>

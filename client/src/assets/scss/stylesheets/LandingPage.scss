@@ -12,6 +12,27 @@
   background-color: #e9d6c3;
 }
 
+.main-page-redirect {
+  color: black;
+  font-size: x-large;
+  border-radius: 3em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: #ffffff;
+  max-width: fit-content;
+  margin: auto;
+  margin-top: 2em;
+  padding:1em;
+}
+.main-page-redirect:hover{
+  color:rgb(255, 0, 0);
+  background-color: #eaeaea;
+}
+
+.redirect-container{
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
 .main {
   height:1500px;
   width: 100vw;

@@ -9,8 +9,10 @@ const LandingPage = props => {
     <div className="outer-container">
       <section className='main'>
         <h1>Welcome to WordSmith</h1>
+        <div className="redirect-container">
         {linkToHome}
-        </section>
+        </div>
+      </section>
     </div>
   )
 }

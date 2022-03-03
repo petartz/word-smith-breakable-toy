@@ -108,20 +108,20 @@ const UserProfile = props => {
   }
 
 
-  // const wordTiles = userWords.map(word => {
-  //   return <WordTile
-  //   key= {word.id}
-  //   word={word}
-  //   deleteYourWord={wordDelete}
-  //   // editYourWord ={editYourWord}
-  //   user={props.user}
+  const wordTiles = userWords.map(word => {
+    return <WordTile
+    key= {word.id}
+    word={word}
+    deleteYourWord={wordDelete}
+    // editYourWord ={editYourWord}
+    user={props.user}
 
-  //   // currentWord={currentWord}
-  //   // setCurrentWord={setCurrentWord}
+    // currentWord={currentWord}
+    // setCurrentWord={setCurrentWord}
 
-  //   // editErrors={editErrors}
-  //   />
-  // })
+    // editErrors={editErrors}
+    />
+  })
 
   const createDictionary = async (formPayLoad) => {
     const folderObject = {
@@ -153,9 +153,7 @@ const UserProfile = props => {
         throw new Error(`${response.status} ${response.statusText}`)
       }
       const body = await response.json()
-      setCurrentFolder(body.folder)
-      console.log(body.folder)
-      console.log(currentFolder)
+      setUserWords(body.words)
     } catch (error) {
       return console.error(`Error in fetch: ${error.message}`)
     }
@@ -177,20 +175,20 @@ const UserProfile = props => {
       <div className="grid-x">
         <div className="cell small-6">
           <div className="profile-left">
-              <div className="words">
-                {/* {wordTiles} */}
-              </div>
-              <div className="dictionaries">
-                <CreatableSelect
-                  placeholder={"Select Dictionary or Create New"}
-                  className="select"
-                  isClearable
-                  onChange={handleDictType}
-                  options={folderOptions}
-                />
-              </div>
+            <div className="dictionaries">
+              <CreatableSelect
+                placeholder={"Select Dictionary or Create New"}
+                className="select"
+                isClearable
+                onChange={handleDictType}
+                options={folderOptions}
+              />
             </div>
-            </div>
+            <div className="words">
+                {wordTiles}
+              </div>
+          </div>
+        </div>
 
         <div className="cell small-6">
           <div className="profile-right">

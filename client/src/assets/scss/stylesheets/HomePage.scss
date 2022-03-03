@@ -1,11 +1,4 @@
-.word-tile {
-  border-radius: 0.5em;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 2em;
-  margin: auto;
-  margin-bottom: 2em;
-  background-color: #ffffff;
-}
+
 .btn {
   margin-left: 30%;
 }
@@ -13,6 +6,7 @@
 .home-elements{
   margin: 2em;
 }
+
 
 .home-buttons{
   align-items: center;
@@ -37,13 +31,11 @@
     border: solid 1px rgb(209, 163, 111);
     border-radius: 5px;
   }
+}
 
-  .add-btn:hover, .filter-btn:hover {
-    color:rgb(255, 0, 0);
-    background-color: #e9d6c3;
-  }
-
-
+.add-btn:hover, .filter-btn:hover {
+  color:rgb(255, 0, 0);
+  background-color: #e9d6c3;
 }
 
 .filter-label{

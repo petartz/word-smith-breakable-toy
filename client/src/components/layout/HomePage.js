@@ -57,7 +57,6 @@ const HomePage = (props) => {
     }, [props.user])
 
 
-
   const filter = async (tags) => {
     const words = await filterResults(tags, restrictedSearch)
     console.log(words)
@@ -135,6 +134,7 @@ const HomePage = (props) => {
     }
   }
 
+
   const wordTiles = words.map(word => {
     return <WordTile
     key= {word.id}
@@ -203,20 +203,12 @@ const HomePage = (props) => {
       <div className = "overlay" id="filter-form">
         {filterContainer}
       </div>
-      <div className="grid-x home-elements">
-        <div className="cell small-4">
-          Placeholder
-
-        </div>
-        <div className="cell small-8 word-tile-wrapper">
-          <div className={signInToAdd} id="add-word-form">
-            <ErrorList errors={errors}/>
-            {newForm}
-          </div>
-          {wordTiles}
-        </div>
+      <div className={signInToAdd} id="add-word-form">
+        <ErrorList errors={errors}/>
+        {newForm}
       </div>
-    </div>
+      {wordTiles}
+      </div>
   )
 
 }
