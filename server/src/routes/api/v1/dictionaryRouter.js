@@ -39,6 +39,7 @@ dictionaryRouter.get(`/:dictName`, async (req,res) => {
   }
 })
 
+
 dictionaryRouter.post(`/:dictName`, async (req,res) => {
   const receivedBody = req.body
   console.log(req.body)
