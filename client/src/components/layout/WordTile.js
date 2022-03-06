@@ -18,10 +18,13 @@ const WordTile = (props) => {
   const handleDeleteClick = () => {
     props.deleteYourWord(id)
   }
+
   const handleEditClick = async () => {
     (props.currentWord === id) ? props.setCurrentWord(null) : props.setCurrentWord(id)
+
     console.log(editSuccess)
     console.log(props.currentWord)
+
     if(editSuccess){
       setEditSuccess(false)
     }
@@ -30,7 +33,6 @@ const WordTile = (props) => {
 
   const addToOneDict = async (dictName) => {
     const sendObject = { wordId:id, userId:props.user.id, dictName:dictName}
-    console.log(sendObject)
     try{
       const response = await fetch(`/api/v1/profile/${props.user.id}/dictionaries/${dictName}`, {
         method: 'POST',
@@ -82,11 +84,10 @@ const WordTile = (props) => {
             onClick ={handleEditClick}
           />
         </div>
-
     }
 
-
     if((props.currentWord === id) && !editSuccess){
+      console.log("rendered")
       showEditForm =
         <EditForm
           editYourWord = {props.editYourWord}
@@ -99,7 +100,7 @@ const WordTile = (props) => {
           speech = {speech}
           userId = {userId}
         />
-    }
+      }
   }
 
   return(

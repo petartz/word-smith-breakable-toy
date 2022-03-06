@@ -12,13 +12,13 @@ import UserProfile from "./layout/UserProfile.js"
 import LandingPage from "./layout/LandingPage";
 
 const App = (props) => {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(undefined);
   const fetchCurrentUser = async () => {
     try {
       const user = await getCurrentUser()
       setCurrentUser(user)
     } catch(err) {
-      setCurrentUser(null)
+      setCurrentUser(undefined)
     }
   }
 

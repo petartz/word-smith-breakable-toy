@@ -11,6 +11,9 @@ const UserProfile = props => {
   const [folderOptions, setFolderOptions] = useState([])
   const [currentFolder, setCurrentFolder] = useState("")
 
+  const [editErrors, setEditErrors] = useState([])
+  const [currentWord, setCurrentWord] = useState(null)
+
 
   const fetchWordData = async () => {
     try{
@@ -94,6 +97,41 @@ const UserProfile = props => {
   }
 
 
+  const editYourWord = async (editedWord) => {
+    try {
+      const response = await fetch(`/api/v1/home/edit`, {
+        method: "POST",
+        headers: new Headers({
+          "Content-Type" : "application/json"
+        }),
+        body: JSON.stringify(editedWord)
+      })
+
+      if (!response.ok){
+        if(response.status === 422){
+          const body = await response.json()
+          const newErrors = translateServerErrors(body.errors)
+          setEditErrors(newErrors)
+        }
+        const errorMessage = `${response.status} (${response.statusText})`
+        const error = new Error(errorMessage)
+        throw(error)
+      }
+      const replacedWord = userWords.find(word => word.id === editedWord.id)
+      const replacedIndex = userWords.indexOf(replacedWord)
+      const allWords = userWords.filter(word => word.id != editedWord.id)
+      allWords.splice(replacedIndex, 0, editedWord)
+
+      setEditErrors([])
+      setUserWords(allWords)
+
+      return true
+    } catch(error) {
+      console.log('you messed up')
+    }
+  }
+
+
   const getUserDicts = async () => {
     try{
       const response = await fetch(`/api/v1/profile/${props.user.id}/dictionaries`)
@@ -113,13 +151,13 @@ const UserProfile = props => {
     key= {word.id}
     word={word}
     deleteYourWord={wordDelete}
-    // editYourWord ={editYourWord}
+    editYourWord ={editYourWord}
     user={props.user}
 
-    // currentWord={currentWord}
-    // setCurrentWord={setCurrentWord}
+    currentWord={currentWord}
+    setCurrentWord={setCurrentWord}
 
-    // editErrors={editErrors}
+    editErrors={editErrors}
     />
   })
 
@@ -164,7 +202,6 @@ const UserProfile = props => {
     } else if (event.__isNew__) {
       createDictionary(event.value)
       setFolderOptions([...folderOptions, { label: event.value, value: event.value }])
-      console.log(event.__isNew__)
     } else {
       getOneDict(event.value)
     }

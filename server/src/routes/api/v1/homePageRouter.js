@@ -6,6 +6,7 @@ import homeFilterRouter from "./homeFilterRouter.js"
 import cleanUserInput from "../../../services/cleanUserInput.js";
 import { ValidationError } from "objection";
 import homeEditRouter from "./homeEditRouter.js"
+import Dictionary from "../../../models/Dictionary.js";
 
 const homePageRouter = new express.Router()
 
@@ -28,6 +29,8 @@ homePageRouter.delete("/delete", async (req,res) => {
   try {
     const wordToDelete = await Word.query().findById(wordId)
     await wordToDelete.$relatedQuery("categorizations").delete()
+    await Dictionary.query().where({wordId:wordToDelete.id}).delete()
+
     await Word.query().deleteById(wordId)
     return res.status(201).json({ message: "Successful delete!" })
   } catch (error) {

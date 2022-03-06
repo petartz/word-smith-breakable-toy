@@ -13,13 +13,13 @@ const HomePage = (props) => {
   const [showRestricted, setShowRestricted] = useState(false)
   const [restrictedSearch, setRestrictedSearch] = useState(false)
 
-  const [filters, setFilters] = useState(false)
+  const [showFilters, setShowFilters] = useState(false)
   const [addWordToggle, setAddWordToggle] = useState(false)
 
   const [errors, setErrors] = useState([])
   const [editErrors, setEditErrors] = useState([])
-  const [currentUser, setCurrentUser] = useState(props.user)
   const [currentWord, setCurrentWord] = useState(null)
+  // const [currentUser, setCurrentUser] = useState(props.user)
 
   const [folderOptions, setFolderOptions] = useState()
 
@@ -38,7 +38,6 @@ const HomePage = (props) => {
   }
   const getUserDicts = async () => {
     if (props.user){
-      console.log(props.user.id)
       try{
         const response = await fetch(`/api/v1/profile/${props.user.id}/dictionaries`)
         if (!response.ok) {
@@ -152,7 +151,7 @@ const HomePage = (props) => {
     />
   })
 
-  let newForm = "Sign in to add new words!"
+  let newForm = <div className="new-word-not-signed">"Sign in to add new words!"</div>
   let signInToAdd = ""
   if (props.user && addWordToggle){
     newForm = <NewWordForm className="add-word-form" addNewWord={addNewWord}/>
@@ -176,14 +175,15 @@ const HomePage = (props) => {
   // Filters showing on click (not using state because asynchronous updating was slow)
   let filterContainer
   const hideFilters = () => {
-    if(filters){
-      setFilters(false)
+    if(showFilters){
+      setShowFilters(false)
       setShowRestricted(false)
+      setRestrictedSearch(false)
     } else {
-      setFilters(true)
+      setShowFilters(true)
     }
   }
-  if(filters){
+  if(showFilters){
     filterContainer = <FilterForm
     filterResults={filter}
     showRestricted={showRestricted}

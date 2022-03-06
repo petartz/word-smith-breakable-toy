@@ -5,6 +5,7 @@ const FilterForm = (props) => {
 
 
   const handleClick = (event) => {
+    console.log(clickedBoxes)
     if (!(clickedBoxes.includes(event.currentTarget.name))){
       setClickedBoxes([...clickedBoxes, event.currentTarget.name])
       if(clickedBoxes.length >= 1){
@@ -31,6 +32,8 @@ const FilterForm = (props) => {
   }
 
   const handleSubmit = async (event) => {
+    console.log(clickedBoxes)
+    console.log(props.restrictedSearch)
     event.preventDefault()
     if (clickedBoxes.length >= 1){
       await props.filterResults(clickedBoxes)
