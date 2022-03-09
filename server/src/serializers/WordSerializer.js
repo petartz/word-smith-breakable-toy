@@ -4,7 +4,7 @@ import Helper from "./helperFunctions.js"
 
 class WordSerializer{
   static getSummary(words){
-    const allowedAttributes = ["id", "title", "definition", "speech", "userId"]
+    const allowedAttributes = ["id", "title", "definition", "speech", "userId", "tags"]
 
     const serializedWords = words.map(word => {
       let serializedWord = {}
@@ -24,9 +24,13 @@ class WordSerializer{
 // ^^ tags with their associated words
 
     for(const tag of tags){
-      let retrievedTag = await Tag.query().findOne({name: tag})
+      let retrievedTag = await Tag.query().findOne({ name: tag })
       let associatedWords = await retrievedTag.$relatedQuery("words")
-      wordList = [...wordList, ...associatedWords]
+      let associatedWithTags = await Promise.all(associatedWords.map(async word =>{
+        word.tags = await word.$relatedQuery("tags")
+        return word
+      }))
+      wordList = [...wordList, ...associatedWithTags]
     }
 
     let strictOverlapList = []
@@ -50,12 +54,13 @@ class WordSerializer{
       }
     }
 
-    const allowedAttributes = ["id", "title", "definition", "speech", "userId"]
+    const allowedAttributes = ["id", "title", "definition", "speech", "userId", "tags"]
     const serializedWords = wordList.map(word => {
       let serializedWord = {}
       for(const attribute of allowedAttributes){
         serializedWord[attribute] = word[attribute]
       }
+      // console.log(serializedWord)
       return serializedWord
     })
     return serializedWords

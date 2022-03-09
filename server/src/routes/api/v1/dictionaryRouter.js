@@ -31,7 +31,7 @@ dictionaryRouter.get(`/:dictName`, async (req,res) => {
     const wordIdArray = dictList.map(dictEntry => {
       return dictEntry.wordId
     })
-    const wordList = await Word.query().whereIn("id", wordIdArray)
+    const wordList = await Word.query().whereIn("id", wordIdArray).withGraphFetched("tags")
 
     return res.status(200).json({ words:wordList })
   } catch (error){

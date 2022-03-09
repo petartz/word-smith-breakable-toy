@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import translateServerErrors from "../../services/translateServerErrors.js"
-
 import { deleteYourWord, filterResults } from "./Requests.js";
 
 import WordTile from "./WordTile";
 import FilterForm from "./FilterForm";
 import NewWordForm from "./NewWordForm";
 import ErrorList from "./ErrorList.js";
+
+import NewFilterForm from "./newFilterForm.js";
 
 const HomePage = (props) => {
   const [words, setWords] = useState([])
@@ -19,7 +20,6 @@ const HomePage = (props) => {
   const [errors, setErrors] = useState([])
   const [editErrors, setEditErrors] = useState([])
   const [currentWord, setCurrentWord] = useState(null)
-  // const [currentUser, setCurrentUser] = useState(props.user)
 
   const [folderOptions, setFolderOptions] = useState()
 
@@ -31,6 +31,7 @@ const HomePage = (props) => {
         throw new Error(`${response.status} ${response.statusText}`)
       }
       const body = await response.json()
+      console.log(body.words)
       setWords(body.words)
     } catch (error) {
       return console.error(`Error in fetch: ${error.message}`)
@@ -122,6 +123,9 @@ const HomePage = (props) => {
       const replacedWord = words.find(word => word.id === editedWord.id)
       const replacedIndex = words.indexOf(replacedWord)
       const allWords = words.filter(word => word.id != editedWord.id)
+      for(let i=0; i<editedWord.tags.length; i++){
+        editedWord.tags[i] = {name:editedWord.tags[i]}
+      }
       allWords.splice(replacedIndex, 0, editedWord)
 
       setEditErrors([])
@@ -200,6 +204,11 @@ const HomePage = (props) => {
         <button className="add-btn" onClick={hideAdd}>Add Word</button>
         <button className="filter-btn" onClick={hideFilters}>Filters</button>
       </div>
+
+      <div>
+        <NewFilterForm/>
+      </div>
+
       <div className = "overlay" id="filter-form">
         {filterContainer}
       </div>
