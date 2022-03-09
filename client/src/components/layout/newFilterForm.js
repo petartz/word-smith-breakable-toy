@@ -5,7 +5,7 @@ import makeAnimated from 'react-select/animated';
 
 const NewFilterForm = (props) => {
   const [tagOptions, setTagOptions] = useState([])
-  const [clickedBoxes, setClickedBoxes] = useState([])
+  const [clickedTags, setClickedTags] = useState([])
 
   const animatedComponents = makeAnimated();
 
@@ -34,20 +34,18 @@ const NewFilterForm = (props) => {
   }, [])
 
   const handleClick = (event) => {
-    if (!(clickedBoxes.includes(event.currentTarget.name))){
-      setClickedBoxes([...clickedBoxes, event.currentTarget.name])
-      if(clickedBoxes.length >= 1){
-        props.setShowRestricted(true)
-      }
-      return true
+    setClickedTags(event)
+    console.log(event)
+    if (event.length === 0){
+      props.resetWords()
+      props.setShowRestricted(false)
+      props.setRestrictedSearch(false)
+    } else if (event.length < 3) {
+      props.setShowRestricted(false)
+      props.setRestrictedSearch(false)
+    } else if (event.length >= 3){
+      props.setShowRestricted(true)
     } else {
-      let newBoxes = clickedBoxes.filter(attribute => attribute != event.currentTarget.name)
-      setClickedBoxes(newBoxes)
-      if(clickedBoxes.length < 3){
-        props.setShowRestricted(false)
-        props.setRestrictedSearch(false)
-      }
-      return false
     }
   }
 
@@ -57,12 +55,16 @@ const NewFilterForm = (props) => {
     }else{
       props.setRestrictedSearch(false)
     }
+    console.log(props.restrictedSearch)
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    if (clickedBoxes.length >= 1){
-      await props.filterResults(clickedBoxes)
+    console.log(props.restrictedSearch)
+    if (clickedTags.length >= 1){
+      let tagsArray = clickedTags.map(tag => tag.value)
+      console.log(tagsArray)
+      await props.filterResults(tagsArray)
     } else {
       alert("You've selected no filters!")
     }
@@ -84,13 +86,25 @@ const NewFilterForm = (props) => {
 
   return (
     <div>
-      <Select
-      closeMenuOnSelect={false}
-      components={animatedComponents}
-      // defaultValue={[colourOptions[4], colourOptions[5]]}
-      isMulti
-      options={tagOptions}
-      />
+      <form className="new-filter-form" onSubmit={handleSubmit} >
+        <div>
+          {restrictedBox}
+        </div>
+        <div>
+          <Select
+          placeholder="Filter words"
+          className = "select-new"
+          closeMenuOnSelect={false}
+          components={animatedComponents}
+          isMulti
+          onChange = {handleClick}
+          options={tagOptions}
+          />
+        </div>
+        <div className="filter-submit">
+          <input className="add-btn" htmlFor="submit" value="Filter Results!" type="submit"/>
+        </div>
+      </form>
     </div>
   )
 }

@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: center;
   display: flex;
-  margin-top: 3em;
+
   .filter-btn {
     font-size: large;
     margin-left: 3em;
@@ -23,6 +23,7 @@
     border-radius: 5px;
   }
   .add-btn {
+    margin-top: auto;
     font-size: large;
     margin-right: 3em;
     padding: .75em;
@@ -74,15 +75,33 @@
   text-align: center;
 }
 
-.filter-form {
+// .filter-form {
+//   text-align: center;
+//   border-radius: 1em;
+//   background-color: #EDE0D4;
+//   border: solid 1px rgb(209, 163, 111);
+//   border-radius: 5px;
+//   margin-left: 30%;
+//   margin-right: 30%;
+//   margin-top: 1em;
+//   padding-bottom: 1em;
+//   padding-top: 1em;
+// }
+
+.filterForm{
+  margin-left: 10em;
+}
+
+.select-new{
+  width: fit-content;
+}
+.new-filter-form {
+  margin-top: 2em;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  border-radius: 1em;
-  background-color: #EDE0D4;
-  border: solid 1px rgb(209, 163, 111);
-  border-radius: 5px;
-  margin-left: 30%;
-  margin-right: 30%;
-  margin-top: 1em;
-  padding-bottom: 1em;
-  padding-top: 1em;
+  display: flex;
+}
+.filter-submit{
+  margin-left: 2em;
 }

@@ -198,20 +198,28 @@ const HomePage = (props) => {
     filterContainer = ""
   }
 
+
   return(
     <div className="home-main">
       <div className="home-buttons">
         <button className="add-btn" onClick={hideAdd}>Add Word</button>
-        <button className="filter-btn" onClick={hideFilters}>Filters</button>
+        {/* <button className="filter-btn" onClick={hideFilters}>Filters</button> */}
+        <div className="filter">
+          <NewFilterForm
+            resetWords = {fetchWordData}
+            filterResults={filter}
+            showRestricted={showRestricted}
+            setShowRestricted={setShowRestricted}
+            restrictedSearch={restrictedSearch}
+            setRestrictedSearch={setRestrictedSearch}
+          />
+        </div>
       </div>
 
-      <div>
-        <NewFilterForm/>
-      </div>
 
-      <div className = "overlay" id="filter-form">
+      {/* <div className = "overlay" id="filter-form">
         {filterContainer}
-      </div>
+      </div> */}
       <div className={signInToAdd} id="add-word-form">
         <ErrorList errors={errors}/>
         {newForm}
