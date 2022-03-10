@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import favicon from "../../../../public/favicon.jpg"
-
 
 import MenuCloseIcon from "../../assets/MenuCloseIcon.js";
 
-const MobileMenu = ({ user, authenticatedListItems, unauthenticatedListItems, toggleVisible }) => {
+const MobileMenu = ({ user, authenticatedListItems, unauthenticatedListItems, toggleSlide }) => {
   return (
-    <div className="mobile-menu" id="mobile-menu">
-      <div className="menuicon" onClick={toggleVisible}>
+    <div className="mobile-menu closed" id="mobile-menu">
+      {/* <div className="menuicon" onClick={toggleVisible}>
         {MenuCloseIcon}
-      </div>
-      <ul className="mobilemenu" onClick={toggleVisible}>
+      </div> */}
+      <ul className="mobilemenu" onClick={toggleSlide}>
         <li>
           <Link className="logo" to="/home" className="link">
               WordSmith
