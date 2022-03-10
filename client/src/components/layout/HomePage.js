@@ -174,37 +174,11 @@ const HomePage = (props) => {
     }
   }
 
-
-
-  // Filters showing on click (not using state because asynchronous updating was slow)
-  let filterContainer
-  const hideFilters = () => {
-    if(showFilters){
-      setShowFilters(false)
-      setShowRestricted(false)
-      setRestrictedSearch(false)
-    } else {
-      setShowFilters(true)
-    }
-  }
-  if(showFilters){
-    filterContainer = <FilterForm
-    filterResults={filter}
-    showRestricted={showRestricted}
-    setShowRestricted={setShowRestricted}
-    restrictedSearch={restrictedSearch}
-    setRestrictedSearch={setRestrictedSearch}/>
-  } else {
-    filterContainer = ""
-  }
-
-
   return(
     <div className="home-main">
       <div className="home-buttons">
-        <button className="add-btn" onClick={hideAdd}>Add Word</button>
-        {/* <button className="filter-btn" onClick={hideFilters}>Filters</button> */}
-        <div className="filter">
+        <button className="button-style" onClick={hideAdd}>Add Word</button>
+        {/* <div className="filter"> */}
           <NewFilterForm
             resetWords = {fetchWordData}
             filterResults={filter}
@@ -213,21 +187,17 @@ const HomePage = (props) => {
             restrictedSearch={restrictedSearch}
             setRestrictedSearch={setRestrictedSearch}
           />
-        </div>
+        {/* </div> */}
       </div>
-
-
-      {/* <div className = "overlay" id="filter-form">
-        {filterContainer}
-      </div> */}
       <div className={signInToAdd} id="add-word-form">
         <ErrorList errors={errors}/>
         {newForm}
       </div>
-      {wordTiles}
+      <div className="home-tiles">
+        {wordTiles}
       </div>
+    </div>
   )
 
 }
-
 export default HomePage

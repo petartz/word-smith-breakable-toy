@@ -7,7 +7,7 @@ const LandingPage = props => {
 
   return(
     <div className="outer-container">
-      <section className='main'>
+      <section className='landing-main'>
         <h1>Welcome to WordSmith</h1>
         <div className="redirect-container">
         {linkToHome}

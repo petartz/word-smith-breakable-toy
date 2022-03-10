@@ -35,7 +35,6 @@ const NewFilterForm = (props) => {
 
   const handleClick = (event) => {
     setClickedTags(event)
-    console.log(event)
     if (event.length === 0){
       props.resetWords()
       props.setShowRestricted(false)
@@ -55,15 +54,12 @@ const NewFilterForm = (props) => {
     }else{
       props.setRestrictedSearch(false)
     }
-    console.log(props.restrictedSearch)
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log(props.restrictedSearch)
     if (clickedTags.length >= 1){
       let tagsArray = clickedTags.map(tag => tag.value)
-      console.log(tagsArray)
       await props.filterResults(tagsArray)
     } else {
       alert("You've selected no filters!")
@@ -85,14 +81,13 @@ const NewFilterForm = (props) => {
 
 
   return (
-    <div>
       <form className="new-filter-form" onSubmit={handleSubmit} >
         <div>
           {restrictedBox}
         </div>
         <div>
           <Select
-          placeholder="Filter words"
+          placeholder="Filter words by tags"
           className = "select-new"
           closeMenuOnSelect={false}
           components={animatedComponents}
@@ -102,10 +97,9 @@ const NewFilterForm = (props) => {
           />
         </div>
         <div className="filter-submit">
-          <input className="add-btn" htmlFor="submit" value="Filter Results!" type="submit"/>
+          <input className="button-style" htmlFor="submit" value="Filter Results!" type="submit"/>
         </div>
       </form>
-    </div>
   )
 }
 
