@@ -29,6 +29,8 @@ const NewFilterForm = (props) => {
     }
   }
 
+  console.log("hello")
+
   useEffect(() => {
     fetchTags()
   }, [])

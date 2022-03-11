@@ -44,8 +44,8 @@ const NewWordForm = props => {
   }
 
   return(
-    <div className="word-tile">
-      <h1>Add New Word!</h1>
+    <div className="add-word-form">
+      <h2>Add New Word</h2>
       <form onSubmit={handleSubmit}>
         <div className="filters">
           <p>Tag your word</p>
@@ -93,27 +93,28 @@ const NewWordForm = props => {
           </div>
         </div>
         <label htmlFor="title">
-          Title:
           <input
             type="text"
             id="title"
             name="title"
             onChange={handleInputChange}
-            value={newWord.title}/>
+            value={newWord.title}
+            placeholder="Title"
+            />
         </label>
 
         <label htmlFor="definition">
-          Definition:
           <input
             type="text"
             id="definition"
             name="definition"
             onChange={handleInputChange}
-            value={newWord.definition}/>
+            value={newWord.definition}
+            placeholder="Definition"
+            />
         </label>
 
         <label htmlFor="speech">
-          Part of speech:
           <select
             id="speech"
             name="speech"
@@ -126,7 +127,7 @@ const NewWordForm = props => {
           </select>
         </label>
 
-        <input className="submit-button" type="submit"/>
+        <input className="add-submit" type="submit"/>
       </form>
     </div>
   )

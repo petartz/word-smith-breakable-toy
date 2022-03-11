@@ -1,0 +1,14 @@
+  #menu-close {
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    width: 30px;
+    height: auto;
+    fill: white;
+  }
+
+  @media (max-width: 638px) {
+    #menu-close {
+      top: 120px;
+    }
+  }

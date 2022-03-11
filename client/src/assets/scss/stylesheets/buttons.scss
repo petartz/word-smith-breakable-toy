@@ -1,0 +1,20 @@
+.add-button {
+  position: fixed;
+  bottom: 20px;
+  left: 10px;
+}
+
+.filter-button {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+}
+
+.button-style {
+  font-size: large;
+  padding: .75em;
+  border-radius: 1em;
+  background-color: #EDE0D4;
+  border: solid 1px rgb(209, 163, 111);
+  border-radius: 5px;
+}

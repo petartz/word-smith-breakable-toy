@@ -7,6 +7,8 @@
 @import "./stylesheets/Word-Tile";
 
 @import "./stylesheets/top-bar";
+@import "./stylesheets/icons";
+@import "./stylesheets/buttons";
 
 @include foundation-everything;
 // place global css here
@@ -24,16 +26,11 @@
 .link {
   font-size: x-large;
   color:black;
-  // background-color: #EDE0D4;
-  // border: solid 1px rgb(209, 163, 111);
-  // border-radius: 5px;
-  // margin-left: 1em;
 }
 
 .link:hover {
   opacity: 80%;
   color:rgb(255, 0, 0);
-  // background-color: #e9d6c3;
 }
 
 

@@ -12,12 +12,12 @@ import favicon from "../../../public/favicon.jpg"
 const TopBar = ({ user }) => {
 
   const toggleSlide = () => {
-    document.getElementById('mobile-menu').classList.toggle('closed')
+    document.getElementById('mobilemenu').classList.toggle('closed')
   };
 
   const closeMenu = () => {
-    if(!document.getElementById("mobile-menu closed")){
-      document.getElementById('mobile-menu').classList.add('closed')
+    if(!document.getElementById("mobilemenu closed")){
+      document.getElementById('mobilemenu').classList.add('closed')
     }
   }
 

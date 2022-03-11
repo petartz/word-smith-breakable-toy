@@ -3,19 +3,20 @@ import translateServerErrors from "../../services/translateServerErrors.js"
 import { deleteYourWord, filterResults } from "./Requests.js";
 
 import WordTile from "./WordTile";
-import FilterForm from "./FilterForm";
 import NewWordForm from "./NewWordForm";
 import ErrorList from "./ErrorList.js";
 
-import NewFilterForm from "./newFilterForm.js";
+import NewFilterForm from "./olderVersions/newFilterForm.js";
+import FilterMenu from "./FilterMenu.js";
+import MenuCloseIcon from "../assets/MenuCloseIcon.js";
 
 const HomePage = (props) => {
   const [words, setWords] = useState([])
+  const [tags, setTags] = useState([])
+
   const [showRestricted, setShowRestricted] = useState(false)
   const [restrictedSearch, setRestrictedSearch] = useState(false)
-
   const [showFilters, setShowFilters] = useState(false)
-  const [addWordToggle, setAddWordToggle] = useState(false)
 
   const [errors, setErrors] = useState([])
   const [editErrors, setEditErrors] = useState([])
@@ -37,6 +38,7 @@ const HomePage = (props) => {
       return console.error(`Error in fetch: ${error.message}`)
     }
   }
+
   const getUserDicts = async () => {
     if (props.user){
       try{
@@ -155,46 +157,55 @@ const HomePage = (props) => {
     />
   })
 
-  let newForm = <div className="new-word-not-signed">"Sign in to add new words!"</div>
-  let signInToAdd = ""
-  if (props.user && addWordToggle){
-    newForm = <NewWordForm className="add-word-form" addNewWord={addNewWord}/>
-    signInToAdd = ""
-  } else if(props.user && !addWordToggle){
-    newForm = ""
-  } else {
-    signInToAdd = "word-tile"
+  const toggleAdd = () => {
+    document.getElementById('overlay').classList.toggle('closed')
   }
 
-  const hideAdd = () => {
-    if(addWordToggle){
-      setAddWordToggle(false)
-    } else {
-      setAddWordToggle(true)
-    }
+  const toggleFilters = () => {
+    setShowFilters(!showFilters)
   }
+
 
   return(
     <div className="home-main">
-      <div className="home-buttons">
-        <button className="button-style" onClick={hideAdd}>Add Word</button>
-        {/* <div className="filter"> */}
-          <NewFilterForm
-            resetWords = {fetchWordData}
-            filterResults={filter}
-            showRestricted={showRestricted}
-            setShowRestricted={setShowRestricted}
-            restrictedSearch={restrictedSearch}
-            setRestrictedSearch={setRestrictedSearch}
-          />
-        {/* </div> */}
-      </div>
-      <div className={signInToAdd} id="add-word-form">
+      <button className="add-button button-style" onClick={toggleAdd}>Add Word</button>
+      <button className="filter-button button-style" onClick={toggleFilters}>Filters</button>
+
+      <div className="overlay closed" id="overlay">
+        <div className="menu-close" onClick={toggleAdd}>
+          {MenuCloseIcon}
+        </div>
         <ErrorList errors={errors}/>
-        {newForm}
+        <NewWordForm addNewWord={addNewWord}/>
       </div>
-      <div className="home-tiles">
-        {wordTiles}
+
+      <div>
+        <FilterMenu/>
+      </div>
+
+
+      {/* <div className="filterMenu closed" id="filterMenu">
+        <div className="menu-close" onClick={toggleFilters}>
+            {MenuCloseIcon}
+        </div>
+
+          <FilterMenu/>
+      </div> */}
+
+      {/* <div className="filter-page">
+        <NewFilterForm
+          resetWords = {fetchWordData}
+          filterResults={filter}
+          showRestricted={showRestricted}
+          setShowRestricted={setShowRestricted}
+          restrictedSearch={restrictedSearch}
+          setRestrictedSearch={setRestrictedSearch}
+        />
+      </div> */}
+      <div className="non-filter-page">
+        <div className="home-tiles">
+          {wordTiles}
+        </div>
       </div>
     </div>
   )
