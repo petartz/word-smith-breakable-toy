@@ -162,7 +162,12 @@ const HomePage = (props) => {
   }
 
   const toggleFilters = () => {
-    setShowFilters(!showFilters)
+    document.getElementById('filter-sidebar').classList.toggle('closed')
+  }
+
+  const closeFilters = () => {
+    if(!document.getElementById('filter-sidebar closed'))
+    document.getElementById('filter-sidebar').classList.add('closed')
   }
 
 
@@ -175,11 +180,16 @@ const HomePage = (props) => {
         <div className="menu-close" onClick={toggleAdd}>
           {MenuCloseIcon}
         </div>
-        <ErrorList errors={errors}/>
         <NewWordForm addNewWord={addNewWord}/>
+        <div>
+          <ErrorList errors={errors}/>
+        </div>
       </div>
 
-      <div>
+      <div className="filter-sidebar closed" id="filter-sidebar">
+        <div className="menu-close" onClick={toggleFilters}>
+          {MenuCloseIcon}
+        </div>
         <FilterMenu/>
       </div>
 
@@ -192,7 +202,7 @@ const HomePage = (props) => {
           <FilterMenu/>
       </div> */}
 
-      {/* <div className="filter-page">
+      <div className="filter-page">
         <NewFilterForm
           resetWords = {fetchWordData}
           filterResults={filter}
@@ -201,8 +211,8 @@ const HomePage = (props) => {
           restrictedSearch={restrictedSearch}
           setRestrictedSearch={setRestrictedSearch}
         />
-      </div> */}
-      <div className="non-filter-page">
+      </div>
+      <div className="non-filter-page" onClick={closeFilters}>
         <div className="home-tiles">
           {wordTiles}
         </div>

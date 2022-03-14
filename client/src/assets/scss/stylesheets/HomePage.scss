@@ -14,7 +14,7 @@
     padding: 3em;
     border-radius: 0.2em;
     overflow-y: scroll;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
   }
   .add-word-form {
     padding: 0 !important;
@@ -45,6 +45,33 @@
       color: white;
     }
 }
+
+.filter-sidebar.closed {
+  width: 0%;
+}
+
+.filter-sidebar {
+  height: 100%;
+  width: 70%;
+  max-width: 40em;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color:rgba(24,24,24,.7);
+  overflow-y: scroll;
+  transition: 0.5s;
+
+  ul {
+    list-style: none;
+  }
+
+  .filter-menu {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
 
 .new-word-not-signed {
   text-align: center;

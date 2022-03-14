@@ -23,7 +23,7 @@ const FilterMenu = (props) => {
         listElement.appendChild(label)
         document.getElementById("filters-container").appendChild(listElement)
       })
-      console.log(tagsArray)
+      // console.log(tagsArray)
     } catch (error) {
       return console.error(`Error in fetch: ${error.message}`)
     }
