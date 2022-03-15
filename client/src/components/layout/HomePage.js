@@ -190,17 +190,11 @@ const HomePage = (props) => {
         <div className="menu-close" onClick={toggleFilters}>
           {MenuCloseIcon}
         </div>
-        <FilterMenu/>
+        <FilterMenu
+          resetWords = {fetchWordData}
+          filterResults={filter}
+        />
       </div>
-
-
-      {/* <div className="filterMenu closed" id="filterMenu">
-        <div className="menu-close" onClick={toggleFilters}>
-            {MenuCloseIcon}
-        </div>
-
-          <FilterMenu/>
-      </div> */}
 
       <div className="filter-page">
         <NewFilterForm
@@ -212,6 +206,7 @@ const HomePage = (props) => {
           setRestrictedSearch={setRestrictedSearch}
         />
       </div>
+
       <div className="non-filter-page" onClick={closeFilters}>
         <div className="home-tiles">
           {wordTiles}

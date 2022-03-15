@@ -39,13 +39,13 @@ const NewFilterForm = (props) => {
     setClickedTags(event)
     if (event.length === 0){
       props.resetWords()
-      props.setShowRestricted(false)
-      props.setRestrictedSearch(false)
+      // props.setShowRestricted(false)
+      // props.setRestrictedSearch(false)
     } else if (event.length < 3) {
-      props.setShowRestricted(false)
-      props.setRestrictedSearch(false)
+      // props.setShowRestricted(false)
+      // props.setRestrictedSearch(false)
     } else if (event.length >= 3){
-      props.setShowRestricted(true)
+      // props.setShowRestricted(true)
     } else {
     }
   }
