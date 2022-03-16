@@ -7,7 +7,7 @@
   margin-top: 1em;
   margin-bottom: 1em;
   background-color: #ffffff;
-  max-width: 80%;
+  max-width: 60%;
 
   .tagTiles {
     display: inline-block;
@@ -31,7 +31,7 @@
   border-radius: 0.5em;
   display: inline-block;
   box-shadow: rgba (0, 0, 0, .24) 0px 3px 8px;
-  text-align: center;
+  text-align: left;
   padding: 0.5em;
   margin-left: 1em;
   margin-top: 2em;
@@ -40,6 +40,10 @@
   font-size: 1.4em;
 }
 .restriction-tile{
+  background-color: #0a0a0aad;
+  border-radius: 1em;
+  font-size: 1.3em;
+  font-weight: bolder;
   padding: 0.5em;
   margin: 0 auto;
   width: fit-content;
@@ -69,7 +73,7 @@
 @media (max-width: 638px) {
   .filter-tiles{
     text-align: left !important;
-    padding: 0.5em !important;
+    padding: 0.3em !important;
     margin-left: 0 !important;
     margin-top: 0.5em !important;
     width: 8em !important;

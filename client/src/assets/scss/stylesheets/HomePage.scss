@@ -17,6 +17,7 @@
 
   }
   .add-word-form {
+    max-width: 100% !important;
     padding: 0 !important;
   }
 }
@@ -31,7 +32,7 @@
   z-index: 1;
   top: 0;
   left: 0;
-  background-color:rgba(24,24,24,.7);
+  background-color:rgba(24,24,24,.88);
   overflow-y: scroll;
   transition: 0.5s;
 }
@@ -41,6 +42,8 @@
     margin: auto;
     margin-top: 5em;
     margin-bottom: 1em;
+    max-width: 50%;
+
     label {
       color: white;
     }
@@ -58,7 +61,7 @@
   z-index: 1;
   top: 0;
   right: 0;
-  background-color:rgba(24,24,24,.7);
+  background-color:rgba(24,24,24,.4);
   overflow-y: scroll;
   transition: 0.5s;
 
