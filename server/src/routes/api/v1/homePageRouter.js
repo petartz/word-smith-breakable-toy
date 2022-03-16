@@ -7,15 +7,18 @@ import cleanUserInput from "../../../services/cleanUserInput.js";
 import { ValidationError } from "objection";
 import homeEditRouter from "./homeEditRouter.js"
 import Dictionary from "../../../models/Dictionary.js";
+import tagsRouter from "./tagsRouter.js"
 
 const homePageRouter = new express.Router()
 
 homePageRouter.use("/filter", homeFilterRouter)
 homePageRouter.use("/edit", homeEditRouter)
+homePageRouter.use("/tags", tagsRouter)
 
 homePageRouter.get("/", async (req,res) =>{
   try{
-    const words = await Word.query().orderBy("id", "desc")
+    const words = await Word.query().orderBy("id", "desc").withGraphFetched("tags")
+
     const serializedWords = WordSerializer.getSummary(words)
     return res.status(200).json({ words:serializedWords })
   } catch (error) {

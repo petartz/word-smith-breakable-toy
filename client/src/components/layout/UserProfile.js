@@ -120,6 +120,10 @@ const UserProfile = props => {
       const replacedWord = userWords.find(word => word.id === editedWord.id)
       const replacedIndex = userWords.indexOf(replacedWord)
       const allWords = userWords.filter(word => word.id != editedWord.id)
+      for(let i=0; i<editedWord.tags.length; i++){
+        editedWord.tags[i] = {name:editedWord.tags[i]}
+      }
+
       allWords.splice(replacedIndex, 0, editedWord)
 
       setEditErrors([])
@@ -145,21 +149,23 @@ const UserProfile = props => {
     }
   }
 
+  let wordTiles = []
+  if(userWords.length > 0){
+    wordTiles = userWords.map(word => {
+      return <WordTile
+      key= {word.id}
+      word={word}
+      deleteYourWord={wordDelete}
+      editYourWord ={editYourWord}
+      user={props.user}
 
-  const wordTiles = userWords.map(word => {
-    return <WordTile
-    key= {word.id}
-    word={word}
-    deleteYourWord={wordDelete}
-    editYourWord ={editYourWord}
-    user={props.user}
+      currentWord={currentWord}
+      setCurrentWord={setCurrentWord}
 
-    currentWord={currentWord}
-    setCurrentWord={setCurrentWord}
-
-    editErrors={editErrors}
-    />
-  })
+      editErrors={editErrors}
+      />
+    })
+  }
 
   const createDictionary = async (formPayLoad) => {
     const folderObject = {

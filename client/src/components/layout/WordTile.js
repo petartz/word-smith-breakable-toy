@@ -4,10 +4,11 @@ import { faTimesCircle, faEdit } from "@fortawesome/free-solid-svg-icons"
 import EditForm from "./EditForm.js"
 
 import Select from 'react-select';
+import TagTile from "./TagTile.js";
 
 const WordTile = (props) => {
 
-  const { id, title, definition, speech, userId } = props.word
+  const { id, title, definition, speech, userId, tags } = props.word
   const [currentFolder, setCurrentFolder] = useState("")
   const [editSuccess, setEditSuccess] = useState(false)
 
@@ -21,10 +22,6 @@ const WordTile = (props) => {
 
   const handleEditClick = async () => {
     (props.currentWord === id) ? props.setCurrentWord(null) : props.setCurrentWord(id)
-
-    console.log(editSuccess)
-    console.log(props.currentWord)
-
     if(editSuccess){
       setEditSuccess(false)
     }
@@ -65,7 +62,7 @@ const WordTile = (props) => {
     addToOneDict(event.value)
   }
 
-
+//Edit delete Buttons
   if (props.user) {
     if (props.user.id === userId) {
       deleteButton =
@@ -86,8 +83,8 @@ const WordTile = (props) => {
         </div>
     }
 
+  //Hide Edit Form on submit
     if((props.currentWord === id) && !editSuccess){
-      console.log("rendered")
       showEditForm =
         <EditForm
           editYourWord = {props.editYourWord}
@@ -102,6 +99,15 @@ const WordTile = (props) => {
         />
       }
   }
+
+
+  const tagTiles = tags.map(tag => {
+    return <TagTile
+    key={Math.random(10000000000000000000000000)}
+    tagName={tag.name}
+    />
+  })
+
 
   return(
     <div className="word-tile">
@@ -122,6 +128,9 @@ const WordTile = (props) => {
           placeholder = "Add to your dictionary"
           onChange={handleDictAdd}
           />
+      </div>
+      <div className="tagTiles">
+        {tagTiles}
       </div>
 
     </div>

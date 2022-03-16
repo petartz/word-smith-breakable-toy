@@ -39,7 +39,6 @@ const filterResults = async (formPayLoad, restrictedSearch) => {
       throw(new Error(`${response.status} ${response.statusText}`))
     }
     const formBody = await response.json()
-    console.log(formBody.words)
     return formBody.words
 
   } catch(error) {

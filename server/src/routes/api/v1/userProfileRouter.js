@@ -12,7 +12,7 @@ userProfileRouter.use("/:id/dictionaries", dictionaryRouter)
 userProfileRouter.get("/:id", async (req,res) =>{
   try{
     const id = req.params.id
-    const words = await Word.query().where({userId:id}).orderBy("id", "desc")
+    const words = await Word.query().where({ userId:id }).withGraphFetched("tags").orderBy("id", "desc")
     const serializedWords = WordSerializer.getSummary(words)
     return res.status(200).json({ words:serializedWords })
   } catch (error) {

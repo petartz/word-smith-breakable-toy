@@ -1,0 +1,29 @@
+.add-button {
+  position: fixed;
+  bottom: 20px;
+  left: 10px;
+  z-index: 1;
+}
+
+.filter-button {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  z-index: 1;
+}
+
+.button-style {
+  font-size: x-large;
+  padding: .75em;
+  border-radius: 1em;
+  background-color: #EDE0D4;
+  border: solid 1px rgb(209, 163, 111);
+  border-radius: 5px;
+}
+
+@media (max-width: 638px) {
+  .button-style {
+    font-size: medium !important;
+  }
+
+}

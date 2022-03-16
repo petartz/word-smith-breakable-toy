@@ -4,7 +4,11 @@
 @import "./stylesheets/LandingPage.scss";
 @import "./stylesheets//HomePage";
 @import "./stylesheets/ProfilePage";
-@import "./stylesheets/Word-Tile";
+@import "./stylesheets/Tiles";
+
+@import "./stylesheets/top-bar";
+@import "./stylesheets/icons";
+@import "./stylesheets/buttons";
 
 @include foundation-everything;
 // place global css here
@@ -14,38 +18,21 @@
   box-sizing: border-box;
 }
 
-.logo {
-  max-width: 5em;
-  align-items: center;
-  height: auto;
+.word-smith {
+  font-size: x-large;
+  color: orange;
 }
-.logo:hover {
+
+.link {
+  font-size: x-large;
+  color:black;
+}
+
+.link:hover {
   opacity: 80%;
+  color:rgb(255, 0, 0);
 }
 
-.sign-in{
-  margin-left: 0;
-  border-radius: .2em;
-
-}
-.top-bar {
-  padding: 1em;
-
-  .top-bar-left{
-    max-width: 30%;
-  }
-  .top-bar-right{
-    margin: auto 0;
-
-    .profilebtn {
-      margin-top: .75em;
-    }
-  }
-  .sign-out{
-    margin-top: .75em;
-    padding: .45em;
-  }
-}
 
 body{
   background-color: #eccfb2;

@@ -1,25 +1,28 @@
 import React, { useEffect, useState } from "react";
 import translateServerErrors from "../../services/translateServerErrors.js"
-
 import { deleteYourWord, filterResults } from "./Requests.js";
 
 import WordTile from "./WordTile";
-import FilterForm from "./FilterForm";
 import NewWordForm from "./NewWordForm";
 import ErrorList from "./ErrorList.js";
 
+import NewFilterForm from "./olderVersions/newFilterForm.js";
+import FilterMenu from "./FilterMenu.js";
+
+import MenuCloseIcon from "../assets/MenuCloseIcon.js";
+import CheckMarkIcon from "../assets/CheckMarkIcon";
+
 const HomePage = (props) => {
   const [words, setWords] = useState([])
+  const [tags, setTags] = useState([])
+
   const [showRestricted, setShowRestricted] = useState(false)
   const [restrictedSearch, setRestrictedSearch] = useState(false)
-
   const [showFilters, setShowFilters] = useState(false)
-  const [addWordToggle, setAddWordToggle] = useState(false)
 
   const [errors, setErrors] = useState([])
   const [editErrors, setEditErrors] = useState([])
   const [currentWord, setCurrentWord] = useState(null)
-  // const [currentUser, setCurrentUser] = useState(props.user)
 
   const [folderOptions, setFolderOptions] = useState()
 
@@ -31,11 +34,13 @@ const HomePage = (props) => {
         throw new Error(`${response.status} ${response.statusText}`)
       }
       const body = await response.json()
+      console.log(body.words)
       setWords(body.words)
     } catch (error) {
       return console.error(`Error in fetch: ${error.message}`)
     }
   }
+
   const getUserDicts = async () => {
     if (props.user){
       try{
@@ -57,6 +62,7 @@ const HomePage = (props) => {
 
 
   const filter = async (tags) => {
+    console.log(restrictedSearch)
     const words = await filterResults(tags, restrictedSearch)
     console.log(words)
     setWords(words)
@@ -122,6 +128,9 @@ const HomePage = (props) => {
       const replacedWord = words.find(word => word.id === editedWord.id)
       const replacedIndex = words.indexOf(replacedWord)
       const allWords = words.filter(word => word.id != editedWord.id)
+      for(let i=0; i<editedWord.tags.length; i++){
+        editedWord.tags[i] = {name:editedWord.tags[i]}
+      }
       allWords.splice(replacedIndex, 0, editedWord)
 
       setEditErrors([])
@@ -151,66 +160,66 @@ const HomePage = (props) => {
     />
   })
 
-  let newForm = <div className="new-word-not-signed">"Sign in to add new words!"</div>
-  let signInToAdd = ""
-  if (props.user && addWordToggle){
-    newForm = <NewWordForm className="add-word-form" addNewWord={addNewWord}/>
-    signInToAdd = ""
-  } else if(props.user && !addWordToggle){
-    newForm = ""
-  } else {
-    signInToAdd = "word-tile"
+  const toggleAdd = () => {
+    document.getElementById('overlay').classList.toggle('closed')
   }
 
-  const hideAdd = () => {
-    if(addWordToggle){
-      setAddWordToggle(false)
-    } else {
-      setAddWordToggle(true)
-    }
+  const toggleFilters = () => {
+    document.getElementById('filter-sidebar').classList.toggle('closed')
   }
 
-
-
-  // Filters showing on click (not using state because asynchronous updating was slow)
-  let filterContainer
-  const hideFilters = () => {
-    if(showFilters){
-      setShowFilters(false)
-      setShowRestricted(false)
-      setRestrictedSearch(false)
-    } else {
-      setShowFilters(true)
-    }
+  const closeFilters = () => {
+    if(!document.getElementById('filter-sidebar closed'))
+    document.getElementById('filter-sidebar').classList.add('closed')
   }
-  if(showFilters){
-    filterContainer = <FilterForm
-    filterResults={filter}
-    showRestricted={showRestricted}
-    setShowRestricted={setShowRestricted}
-    restrictedSearch={restrictedSearch}
-    setRestrictedSearch={setRestrictedSearch}/>
-  } else {
-    filterContainer = ""
-  }
+
 
   return(
     <div className="home-main">
-      <div className="home-buttons">
-        <button className="add-btn" onClick={hideAdd}>Add Word</button>
-        <button className="filter-btn" onClick={hideFilters}>Filters</button>
+      <button className="add-button button-style" onClick={toggleAdd}>Add Word</button>
+      <button className="filter-button button-style" onClick={toggleFilters}>Filters</button>
+
+      <div className="overlay closed" id="overlay">
+        <div className="menu-close" onClick={toggleAdd}>
+          {MenuCloseIcon}
+        </div>
+        <NewWordForm addNewWord={addNewWord}/>
+        <div>
+          <ErrorList errors={errors}/>
+        </div>
       </div>
-      <div className = "overlay" id="filter-form">
-        {filterContainer}
+
+      <div className="filter-sidebar closed" id="filter-sidebar">
+        <div className="menu-close" onClick={toggleFilters}>
+          {MenuCloseIcon}
+        </div>
+        <FilterMenu
+          resetWords={fetchWordData}
+          restrictedSearch={restrictedSearch}
+          setRestrictedSearch={setRestrictedSearch}
+          toggleFilters={toggleFilters}
+          filterResults={filter}
+        />
       </div>
-      <div className={signInToAdd} id="add-word-form">
-        <ErrorList errors={errors}/>
-        {newForm}
+
+      <div className="filter-page">
+        <NewFilterForm
+          resetWords = {fetchWordData}
+          filterResults={filter}
+          showRestricted={showRestricted}
+          setShowRestricted={setShowRestricted}
+          restrictedSearch={restrictedSearch}
+          setRestrictedSearch={setRestrictedSearch}
+        />
       </div>
-      {wordTiles}
+
+      <div className="non-filter-page" onClick={closeFilters}>
+        <div className="home-tiles">
+          {wordTiles}
+        </div>
       </div>
+    </div>
   )
 
 }
-
 export default HomePage
