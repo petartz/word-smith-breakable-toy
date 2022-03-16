@@ -2,12 +2,12 @@
 .word-tile {
   border-radius: 0.5em;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 2em;
+  padding: 0.9em;
   margin: auto;
   margin-top: 1em;
   margin-bottom: 1em;
   background-color: #ffffff;
-  max-width: 60%;
+  max-width: 80%;
 
   .tagTiles {
     display: inline-block;
@@ -15,6 +15,7 @@
 }
 
 .tag-tile {
+  font-size: 1.4em;
   border-radius: 0.5em;
   display: inline-block;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -74,9 +75,10 @@
     width: 8em !important;
   }
   .word-tile{
-    max-width: 80% !important;
+    max-width: 90% !important;
   }
   .tag-tile {
+    font-size: 1em !important;
     margin-left: .3em !important;
   }
   .word-properties {
