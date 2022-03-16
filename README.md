@@ -47,9 +47,9 @@ Full list of commands.
 ```
 $ git clone https://github.com/petartz/word-smith-breakable-toy.git
 $ touch wordsmithApp
+$ cd wordsmithApp
 $ yarn install
 $ createdb wordsmithApp_development
-$ cd wordsmithApp
 $ cd server
 $ yarn migrate:latest
 $ yarn db:seed
