@@ -8,8 +8,8 @@ Create a memory palace for all the words you know, so you never forget them agai
 ## About
 To access the service visit [WordSmith](https://word-smith-breakabletoy.herokuapp.com/).
 </br>
-WordSmith was created by Petar Tzonevski as a way for individuals to maintain a firm grasp over their vocabulary, and easily access words which we
-might forget in the course of our daily lives. Traditional dictionaries only allow us to search by virtue of word names, synonyms, or definitions.
+WordSmith was created by Petar Tzonevski as a way for individuals to maintain a firm grasp over their vocabulary, and easily access words which they
+might forget in the course of their daily lives. Traditional dictionaries only allow us to search by word names, synonyms, or definitions.
 Wordsmith aims to change that by allowing us to create systems of tags to help us navigate even the most obscure words we know. Special shoutout to
 John Koening and the Dictionary of Obscure Sorrows which was the initial inspiration for creating this app. We can all be a WordSmith if we simply begin
 to take ownership of our words.
