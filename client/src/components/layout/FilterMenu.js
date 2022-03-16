@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
+import CheckMarkIcon from "../assets/CheckMarkIcon"
 
 const FilterMenu = (props) => {
-  const [restrictedSearch, setRestrictedSearch] = useState(false)
   const [tagOptions, setTagOptions] = useState([])
   const [clickedTags, setClickedTags] = useState([])
 
@@ -25,7 +25,7 @@ const FilterMenu = (props) => {
   const handleClick = (event) => {
     console.log(event.currentTarget.name)
     if (!(clickedTags.includes(event.currentTarget.name))){
-        setClickedTags([...clickedTags, event.currentTarget.name])
+      setClickedTags([...clickedTags, event.currentTarget.name])
       return true
     } else {
       let newBoxes = clickedTags.filter(attribute => attribute != event.currentTarget.name)
@@ -44,7 +44,7 @@ const FilterMenu = (props) => {
   }
 
   const handleRestrict = (event) => {
-    setRestrictedSearch(!restrictedSearch)
+    props.setRestrictedSearch(!props.restrictedSearch)
   }
 
   let listOfTags = tagOptions.map(tag => {
@@ -57,19 +57,21 @@ const FilterMenu = (props) => {
   })
 
   let restrictedBox =
-  (<div>
+  (<li className="restriction-tile">
     <input htmlFor="restrict"
       name="restrict"
       type="checkbox"
       onClick={handleRestrict} />
       <label>Restrict the Search!</label>
-  </div>)
+  </li>)
 
   return (
-      <form className="filter-menu" onSubmit={handleSubmit}>
-        <input type="submit"></input>
-        {restrictedBox}
+      <form className="filter-menu">
+        <div className="check-mark" onClick={handleSubmit}>
+          {CheckMarkIcon}
+        </div>
         <ul className="filters-container" id="filters-container">
+          {restrictedBox}
           {listOfTags}
         </ul>
       </form>

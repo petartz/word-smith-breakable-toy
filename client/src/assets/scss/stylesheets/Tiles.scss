@@ -1,0 +1,87 @@
+
+.word-tile {
+  border-radius: 0.5em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 2em;
+  margin: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background-color: #ffffff;
+  max-width: 60%;
+
+  .tagTiles {
+    display: inline-block;
+  }
+}
+
+.tag-tile {
+  border-radius: 0.5em;
+  display: inline-block;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  text-align: center;
+  padding: .5em;
+  margin-left: 2em;
+  margin-top: 2em;
+  background-color: #ffffff;
+  width: 7em;
+}
+
+.filter-tiles{
+  border-radius: 0.5em;
+  display: inline-block;
+  box-shadow: rgba (0, 0, 0, .24) 0px 3px 8px;
+  text-align: center;
+  padding: 0.5em;
+  margin-left: 1em;
+  margin-top: 2em;
+  background-color: #ffffff;
+  width: 10em;
+  font-size: 1.4em;
+}
+.restriction-tile{
+  padding: 0.5em;
+  margin: 0 auto;
+  width: fit-content;
+  label{
+    color: white;
+  }
+}
+.word-properties{
+  text-align: center;
+  font-family: serif;
+  font-size: 1.3em;
+  .word-title {
+    font-size: xx-large;
+  }
+}
+.tile-buttons{
+  display:inline-flex;
+}
+.delete-icon{
+  float: left;
+}
+.edit-icon{
+  margin-left: 1em;
+  float: right;
+}
+
+@media (max-width: 638px) {
+  .filter-tiles{
+    text-align: left !important;
+    padding: 0.5em !important;
+    margin-left: 0 !important;
+    margin-top: 0.5em !important;
+    width: 8em !important;
+  }
+  .word-tile{
+    max-width: 80% !important;
+  }
+  .tag-tile {
+    margin-left: .3em !important;
+  }
+  .word-properties {
+    font-size: .8em;
+
+  }
+
+}

@@ -64,36 +64,18 @@
 
   ul {
     list-style: none;
+    margin: 0 !important;
+  }
+  label {
+    font-size: 1.2em;
   }
 
   .filter-menu {
-    margin-top: 6em;
-    bottom: 0;
-    .filter-tiles{
-      border-radius: 0.5em;
-      display: inline-block;
-      box-shadow: rgba (0, 0, 0, .24) 0px 3px 8px;
-      text-align: center;
-      padding: 0.5em;
-      margin-left: 2em;
-      margin-top: 2em;
-      background-color: #ffffff;
-      width: 10em;
-      font-size: 1.4em;
-    }
+    margin-top: 9em;
+    margin-bottom: 0.5em;
+    text-align: center;
   }
 }
-
-@media (max-width: 638px) {
-  .filter-tiles{
-    text-align: left !important;
-    padding: 0.5em !important;
-    margin-left: 0.5em !important;
-    margin-top: 0.5em !important;
-    width: 8em !important;
-  }
-}
-
 
 .new-word-not-signed {
   text-align: center;
@@ -102,4 +84,10 @@
 .select-new{
   width: fit-content;
   max-width: 18em;
+}
+
+@media (max-width: 638px) {
+  label {
+    font-size: .8em !important;
+  }
 }

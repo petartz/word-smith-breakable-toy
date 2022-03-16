@@ -8,7 +8,9 @@ import ErrorList from "./ErrorList.js";
 
 import NewFilterForm from "./olderVersions/newFilterForm.js";
 import FilterMenu from "./FilterMenu.js";
+
 import MenuCloseIcon from "../assets/MenuCloseIcon.js";
+import CheckMarkIcon from "../assets/CheckMarkIcon";
 
 const HomePage = (props) => {
   const [words, setWords] = useState([])
@@ -60,6 +62,7 @@ const HomePage = (props) => {
 
 
   const filter = async (tags) => {
+    console.log(restrictedSearch)
     const words = await filterResults(tags, restrictedSearch)
     console.log(words)
     setWords(words)
@@ -191,7 +194,10 @@ const HomePage = (props) => {
           {MenuCloseIcon}
         </div>
         <FilterMenu
-          resetWords = {fetchWordData}
+          resetWords={fetchWordData}
+          restrictedSearch={restrictedSearch}
+          setRestrictedSearch={setRestrictedSearch}
+          toggleFilters={toggleFilters}
           filterResults={filter}
         />
       </div>
