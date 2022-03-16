@@ -1,6 +1,9 @@
 # Wordsmith
-Wordmsith is a website for creating dictionaries and organizing words. It is meant as a tool for navigating the immensely interconnected web of 
-words by organizing them through user generated tags and dictionaries.
+Wordmsith is a website for creating dictionaries and organizing words. Create public dictionaries, add words to them, and create tags for your words
+for others to see and use.
+Create personal dictionaries for easy access to your favorite words.
+This is the place to learn new words, share them, and craft them!
+Create a memory palace for all the words you know, so you never forget them again.
 
 ## About
 To access the service visit [WordSmith](https://word-smith-breakabletoy.herokuapp.com/).
