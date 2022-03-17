@@ -11,6 +11,8 @@ import AuthenticatedRoute from "./authentication/AuthenticatedRoute";
 import UserProfile from "./layout/UserProfile.js"
 import LandingPage from "./layout/LandingPage";
 
+import Dictionaries from "./layout/Dictionaries";
+
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
   const fetchCurrentUser = async () => {
@@ -41,6 +43,12 @@ const App = (props) => {
           user={currentUser}
           component={UserProfile}
         />
+
+        <Route exact path="/dictionaries">
+          <Dictionaries/>
+        </Route>
+
+
         <Route exact path="/home">
           <HomePage user={currentUser}/>
         </Route>
