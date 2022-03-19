@@ -2,20 +2,20 @@ import express from "express";
 import Word from "../../../models/Word.js"
 import Tag from "../../../models/Tag.js"
 import WordSerializer from "../../../serializers/WordSerializer.js";
-import homeFilterRouter from "./homeFilterRouter.js"
+import dictionaryFilterRouter from "./dictionaryFilterRouter.js"
 import cleanUserInput from "../../../services/cleanUserInput.js";
 import { ValidationError } from "objection";
-import homeEditRouter from "./homeEditRouter.js"
+import dictionaryEditRouter from "./dictionaryEditRouter.js"
 import Dictionary from "../../../models/Dictionary.js";
 import tagsRouter from "./tagsRouter.js"
 
-const homePageRouter = new express.Router()
+const dictionaryShowRouter = new express.Router()
 
-homePageRouter.use("/filter", homeFilterRouter)
-homePageRouter.use("/edit", homeEditRouter)
-homePageRouter.use("/tags", tagsRouter)
+dictionaryShowRouter.use("/filter", dictionaryFilterRouter)
+dictionaryShowRouter.use("/edit", dictionaryEditRouter)
+dictionaryShowRouter.use("/tags", tagsRouter)
 
-homePageRouter.get("/", async (req,res) =>{
+dictionaryShowRouter.get("/", async (req,res) =>{
   try{
     const words = await Word.query().orderBy("id", "desc").withGraphFetched("tags")
 
@@ -26,7 +26,7 @@ homePageRouter.get("/", async (req,res) =>{
   }
 })
 
-homePageRouter.delete("/delete", async (req,res) => {
+dictionaryShowRouter.delete("/delete", async (req,res) => {
   const { wordId } = req.body
 
   try {
@@ -41,7 +41,7 @@ homePageRouter.delete("/delete", async (req,res) => {
   }
 })
 
-homePageRouter.post('/', async (req,res) =>{
+dictionaryShowRouter.post('/', async (req,res) =>{
   const formInput = cleanUserInput(req.body)
 
   for (let i=0; i<formInput.tags.length; i++){
@@ -59,4 +59,4 @@ homePageRouter.post('/', async (req,res) =>{
   }
 })
 
-export default homePageRouter
+export default dictionaryShowRouter

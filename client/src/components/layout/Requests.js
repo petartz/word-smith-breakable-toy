@@ -3,7 +3,7 @@ import translateServerErrors from "../../services/translateServerErrors.js"
 
 const deleteYourWord = async (wordId) => {
   try {
-    const response = await fetch(`/api/v1/home/delete`, {
+    const response = await fetch(`/api/v1/dictionaries/${dictionaryId}/delete`, {
       method: "DELETE",
       headers: new Headers({
         "Content-Type": "application/json"
@@ -28,7 +28,7 @@ const deleteYourWord = async (wordId) => {
 const filterResults = async (formPayLoad, restrictedSearch) => {
   const userObject = { tags:formPayLoad, restriction:restrictedSearch }
   try{
-    const response = await fetch("/api/v1/home/filter", {
+    const response = await fetch(`/api/v1/dictionaries/${dictionaryId}/filter`, {
       method: 'POST',
       headers: new Headers ({
         'Content-Type': 'application/json',

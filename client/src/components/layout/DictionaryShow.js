@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { withRouter } from "react-router" // <- here
+
 import translateServerErrors from "../../services/translateServerErrors.js"
 import { deleteYourWord, filterResults } from "./Requests.js";
 
@@ -10,15 +12,13 @@ import NewFilterForm from "./olderVersions/newFilterForm.js";
 import FilterMenu from "./FilterMenu.js";
 
 import MenuCloseIcon from "../assets/MenuCloseIcon.js";
-import CheckMarkIcon from "../assets/CheckMarkIcon";
 
-const HomePage = (props) => {
+const DictionaryShow = (props) => {
   const [words, setWords] = useState([])
   const [tags, setTags] = useState([])
 
   const [showRestricted, setShowRestricted] = useState(false)
   const [restrictedSearch, setRestrictedSearch] = useState(false)
-  const [showFilters, setShowFilters] = useState(false)
 
   const [errors, setErrors] = useState([])
   const [editErrors, setEditErrors] = useState([])
@@ -28,8 +28,10 @@ const HomePage = (props) => {
 
 
   const fetchWordData = async () => {
+    // debugger
+    let dictionaryId = props.match.params.id
     try{
-      const response = await fetch(`/api/v1/home`)
+      const response = await fetch(`/api/v1/dictionaries/${dictionaryId}`)
       if (!response.ok) {
         throw new Error(`${response.status} ${response.statusText}`)
       }
@@ -76,9 +78,10 @@ const HomePage = (props) => {
   }
 
   const addNewWord = async (formPayLoad) => {
+    let dictionaryId = props.match.params.id
     formPayLoad.userId = props.user.id
     try{
-      const response = await fetch("/api/v1/home", {
+      const response = await fetch(`/api/v1/dictionaries/${dictionaryId}`, {
         method: 'POST',
         headers: new Headers ({
           'Content-Type': 'application/json',
@@ -107,7 +110,7 @@ const HomePage = (props) => {
 
   const editYourWord = async (editedWord) => {
     try {
-      const response = await fetch(`/api/v1/home/edit`, {
+      const response = await fetch(`/api/v1/dictionaries/${dictionaryId}/edit`, {
         method: "POST",
         headers: new Headers({
           "Content-Type" : "application/json"
@@ -222,4 +225,4 @@ const HomePage = (props) => {
   )
 
 }
-export default HomePage
+export default withRouter(DictionaryShow)

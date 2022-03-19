@@ -1,4 +1,25 @@
 
+.folder-tile {
+  z-index: 100;
+  border-radius: 0.5em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 0.9em;
+  margin: auto;
+  margin-top: 2em;
+  background-color: #ffffff;
+  max-width: 20%;
+
+  transition-property: all;
+  transition-duration: .4s;
+  a {
+    color: black;
+  }
+}
+
+.folder-tile:hover{
+  transform: scale(1.1);
+}
+
 .word-tile {
   border-radius: 0.5em;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -51,6 +72,7 @@
     color: white;
   }
 }
+
 .word-properties{
   text-align: center;
   font-family: serif;
@@ -87,7 +109,31 @@
   }
   .word-properties {
     font-size: .8em;
-
   }
 
+  .folder-tile {
+    max-width: 50% !important;
+    transform: scale(.8);
+    margin-top: 0 !important;
+  }
+}
+
+@media (min-width:639px) and (max-width:1600px){
+  .folder-tile{
+    transform: scale(.8);
+    max-width: 30%;
+    h1{
+      transform: scale(.6);
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .folder-tile{
+    max-width: 15% !important;
+
+  }
+  .folder-tile:hover{
+    transform: scale(1.1);
+  }
 }

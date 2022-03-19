@@ -8,7 +8,7 @@ const MobileMenu = ({ user, authenticatedListItems, unauthenticatedListItems, to
     <div className="mobile-menu" id="mobile-menu">
       <ul className="mobilemenu closed" id="mobilemenu" onClick={toggleSlide}>
         <li>
-          <Link className="logo" to="/home" className="link">
+          <Link className="logo" to="/dictionaries" className="link">
               WordSmith
           </Link>
         </li>

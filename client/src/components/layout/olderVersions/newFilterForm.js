@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { withRouter } from "react-router" // <- here
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 
@@ -10,8 +11,10 @@ const NewFilterForm = (props) => {
   const animatedComponents = makeAnimated();
 
   const fetchTags = async () => {
+    let dictionaryId = props.match.params.id
+
     try{
-      const response = await fetch(`/api/v1/home/tags`)
+      const response = await fetch(`/api/v1/dictionaries/${dictionaryId}/tags`)
       if (!response.ok) {
         throw new Error(`${response.status} ${response.statusText}`)
       }
@@ -20,16 +23,11 @@ const NewFilterForm = (props) => {
       body.tags.forEach(tag => {
         tagsArray = [...tagsArray, { value:tag.name, label:tag.name }]
       })
-
-      console.log(tagsArray)
       setTagOptions(tagsArray)
-
     } catch (error) {
       return console.error(`Error in fetch: ${error.message}`)
     }
   }
-
-  console.log("hello")
 
   useEffect(() => {
     fetchTags()
@@ -105,4 +103,4 @@ const NewFilterForm = (props) => {
   )
 }
 
-export default NewFilterForm
+export default withRouter(NewFilterForm)

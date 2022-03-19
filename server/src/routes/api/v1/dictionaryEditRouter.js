@@ -7,9 +7,9 @@ import { ValidationError } from "objection"
 import Categorization from "../../../models/Categorization.js"
 
 
-const homeEditRouter = new express.Router( {mergeParams:true} )
+const dictionaryEditRouter = new express.Router( {mergeParams:true} )
 
-homeEditRouter.post("/", async (req, res) => {
+dictionaryEditRouter.post("/", async (req, res) => {
   const cleanInput = cleanUserInput(req.body)
   const { id, title, definition, speech, tags, userId } = cleanInput
 
@@ -31,4 +31,4 @@ homeEditRouter.post("/", async (req, res) => {
   }
 })
 
-export default homeEditRouter
+export default dictionaryEditRouter
