@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import WordTile from "./WordTile.js"
-import { deleteYourWord } from "./Requests.js"
+import { deleteFromProfile } from "./Requests.js"
 
 import CreatableSelect from 'react-select/creatable';
 
@@ -33,7 +33,7 @@ const UserProfile = props => {
   }, [])
 
   const wordDelete = (wordId) => {
-    deleteYourWord(wordId)
+    deleteFromProfile(wordId, props.user.id)
     const updatedWords = userWords.filter(word => word.id != wordId)
     setUserWords(updatedWords)
   }
@@ -99,7 +99,7 @@ const UserProfile = props => {
 
   const editYourWord = async (editedWord) => {
     try {
-      const response = await fetch(`/api/v1/home/edit`, {
+      const response = await fetch(`/api/v1/profile/${props.user.id}`, {
         method: "POST",
         headers: new Headers({
           "Content-Type" : "application/json"

@@ -26,6 +26,12 @@ const Dictionaries = (props) => {
   }, [props.user])
 
 
+  const toggleAdd = () => {
+    document.getElementById('addDictOverlay').classList.toggle('closed')
+  }
+
+
+
   const folderTiles = folderOptions.map(folder => {
     return(
       <FolderTile
@@ -36,7 +42,12 @@ const Dictionaries = (props) => {
 
 
   return (
+
     <div className="dictionary-container">
+      <button className="add-button button-style" onClick={toggleAdd}>Add Word</button>
+        <div className="addDictOverlay closed" id="addDictOverlay">
+
+        </div>
       {folderTiles}
     </div>
   )

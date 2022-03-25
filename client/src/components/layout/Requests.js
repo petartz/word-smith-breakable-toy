@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import translateServerErrors from "../../services/translateServerErrors.js"
 
-const deleteYourWord = async (wordId) => {
+const deleteYourWord = async (wordId, dictionaryId) => {
   try {
     const response = await fetch(`/api/v1/dictionaries/${dictionaryId}/delete`, {
       method: "DELETE",
@@ -25,7 +25,31 @@ const deleteYourWord = async (wordId) => {
   }
 }
 
-const filterResults = async (formPayLoad, restrictedSearch) => {
+const deleteFromProfile = async (wordId, userId) => {
+  try {
+    const response = await fetch(`/api/v1/profile/${userId}`, {
+      method: "DELETE",
+      headers: new Headers({
+        "Content-Type": "application/json"
+      }),
+      body: JSON.stringify({ wordId })
+    })
+    if (!response.ok) {
+      if (response.status === 422) {
+        const body = await response.json()
+        alert(body.message)
+      }
+      const errorMessage = `${response.status} (${response.statusText})`
+      const error = new Error(errorMessage)
+      throw(error)
+    }
+
+  } catch (error) {
+    return console.error(`Error in fetch: ${error.message}`)
+  }
+}
+
+const filterResults = async (formPayLoad, restrictedSearch, dictionaryId) => {
   const userObject = { tags:formPayLoad, restriction:restrictedSearch }
   try{
     const response = await fetch(`/api/v1/dictionaries/${dictionaryId}/filter`, {
@@ -50,4 +74,4 @@ const filterResults = async (formPayLoad, restrictedSearch) => {
 
 
 
-export { deleteYourWord, filterResults }
+export { deleteYourWord, filterResults, deleteFromProfile }

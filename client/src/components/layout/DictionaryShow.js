@@ -26,10 +26,10 @@ const DictionaryShow = (props) => {
 
   const [folderOptions, setFolderOptions] = useState()
 
+  let dictionaryId = props.match.params.id
 
   const fetchWordData = async () => {
     // debugger
-    let dictionaryId = props.match.params.id
     try{
       const response = await fetch(`/api/v1/dictionaries/${dictionaryId}`)
       if (!response.ok) {
@@ -63,22 +63,20 @@ const DictionaryShow = (props) => {
     }, [props.user])
 
 
-  const filter = async (tags) => {
-    console.log(restrictedSearch)
-    const words = await filterResults(tags, restrictedSearch)
+  const filter = async (tags, dictId) => {
+    const words = await filterResults(tags, restrictedSearch, dictId)
     console.log(words)
     setWords(words)
   }
 
   const wordDelete = (wordId) => {
-    deleteYourWord(wordId)
+    deleteYourWord(wordId, dictionaryId)
 
     const updatedWords = words.filter(word => word.id != wordId)
     setWords(updatedWords)
   }
 
   const addNewWord = async (formPayLoad) => {
-    let dictionaryId = props.match.params.id
     formPayLoad.userId = props.user.id
     try{
       const response = await fetch(`/api/v1/dictionaries/${dictionaryId}`, {
@@ -109,6 +107,7 @@ const DictionaryShow = (props) => {
   }
 
   const editYourWord = async (editedWord) => {
+
     try {
       const response = await fetch(`/api/v1/dictionaries/${dictionaryId}/edit`, {
         method: "POST",

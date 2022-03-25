@@ -18,4 +18,17 @@ homeDictionaryRouter.get("/", async (req,res) => {
   }
 })
 
+homeDictionaryRouter.post("/", async (req, res) => {
+  try{
+    const folders = await HomeFolder.query()
+    const serializedFolders = HomeDictSerializer.getSummary(folders)
+
+    console.log(serializedFolders)
+    return res.status(200).json({ homeFolders:serializedFolders })
+
+  } catch (error) {
+    return res.status(500).json({ errors: error })
+  }
+})
+
 export default homeDictionaryRouter

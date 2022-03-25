@@ -38,8 +38,10 @@ const FilterMenu = (props) => {
 
   const handleSubmit = async event => {
     event.preventDefault()
+    let dictionaryId = props.match.params.id
+
     if (clickedTags.length >= 1){
-      await props.filterResults(clickedTags)
+      await props.filterResults(clickedTags, dictionaryId)
     } else {
       alert("You've selected no filters!")
     }
