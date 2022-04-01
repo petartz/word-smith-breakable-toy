@@ -78,6 +78,7 @@ const DictionaryShow = (props) => {
 
   const addNewWord = async (formPayLoad) => {
     formPayLoad.userId = props.user.id
+    formPayLoad.dictionaryId = dictionaryId
     try{
       const response = await fetch(`/api/v1/dictionaries/${dictionaryId}`, {
         method: 'POST',
@@ -107,7 +108,6 @@ const DictionaryShow = (props) => {
   }
 
   const editYourWord = async (editedWord) => {
-
     try {
       const response = await fetch(`/api/v1/dictionaries/${dictionaryId}/edit`, {
         method: "POST",
@@ -163,7 +163,11 @@ const DictionaryShow = (props) => {
   })
 
   const toggleAdd = () => {
-    document.getElementById('overlay').classList.toggle('closed')
+    if (props.user){
+      document.getElementById('overlay').classList.toggle('closed')
+    } else {
+      alert("Sign in to add words")
+    }
   }
 
   const toggleFilters = () => {

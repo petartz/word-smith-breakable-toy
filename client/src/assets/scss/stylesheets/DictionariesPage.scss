@@ -3,3 +3,32 @@
   flex-wrap: wrap;
   width: 100%;
 }
+
+@media (max-width: 638px) {
+  .addDictOverlay {
+    position: fixed;
+    z-index: 9999;
+    height: 75%;
+    background-color: #EDE0D4;
+    padding: 3em;
+    border-radius: 0.2em;
+    overflow-y: scroll;
+
+  }
+}
+
+.addDictOverlay.closed {
+  height: 0%;
+}
+
+.addDictOverlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:rgba(24,24,24,.88);
+  overflow-y: scroll;
+  transition: 0.5s;
+}
