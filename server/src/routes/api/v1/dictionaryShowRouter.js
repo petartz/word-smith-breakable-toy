@@ -24,13 +24,10 @@ dictionaryShowRouter.get("/", async (req,res) =>{
     wordsToGet.forEach(word => {
       wordList = [...wordList, word.wordId]
     })
-
-    console.log(wordList)
-    const words = await Word.query().whereIn("id", wordsToGet).orderBy("id", "desc").withGraphFetched("tags")
-
+    const words = await Word.query().whereIn("id", wordList).orderBy("id", "desc").withGraphFetched("tags")
     const serializedWords = WordSerializer.getSummary(words)
 
-    // return res.status(200).json({ words:serializedWords })
+    return res.status(200).json({ words:serializedWords })
   } catch (error) {
     res.status(500).json({ errors:error })
   }

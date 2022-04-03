@@ -7,18 +7,17 @@ const FolderTile = (props) => {
 
   return(
     <div className="folder-tile">
-      <Link to={`/dictionaries/${id}`}>
-        <div>
-          <h1>
-              {name}
-          </h1>
-          <h5>
-            {description}
-          </h5>
-          <img src={image} alt={name}></img>
-        </div>
+        <Link to={`/dictionaries/${id}`}>
+          <div className="folder-contents">
+            <h1>
+                {name}
+            </h1>
+            <p>
+              {description}
+            </p>
+            <img src={image} alt={name}></img>
+          </div>
       </Link>
-
     </div>
   )
 

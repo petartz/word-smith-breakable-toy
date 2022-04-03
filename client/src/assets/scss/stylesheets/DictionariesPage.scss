@@ -3,7 +3,6 @@
   flex-wrap: wrap;
   width: 100%;
 }
-
 @media (max-width: 638px) {
   .addDictOverlay {
     position: fixed;
@@ -16,11 +15,9 @@
 
   }
 }
-
 .addDictOverlay.closed {
   height: 0%;
 }
-
 .addDictOverlay {
   height: 100%;
   width: 100%;
@@ -31,4 +28,74 @@
   background-color:rgba(24,24,24,.88);
   overflow-y: scroll;
   transition: 0.5s;
+}
+
+
+.folder-tile {
+  z-index: 100;
+  border-radius: 0.5em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 0.9em;
+  margin: auto;
+  margin-top: 2em;
+  background-color: #ffffff;
+
+  min-height: 30em;
+  max-height: 30em;
+  min-width: 20em;
+  max-width: 20em;
+
+  transition-property: all;
+  transition-duration: .4s;
+
+  .folder-contents{
+    text-align: center;
+  }
+
+  a {
+    color: black;
+  }
+  p {
+    font-size: 1.4em;
+  }
+  img {
+    position: relative;
+    bottom: 0;
+
+    max-width: 15em;
+    max-height: 15em;
+  }
+
+}
+
+.folder-tile:hover{
+  transform: scale(1.1);
+}
+
+@media (max-width: 638px) {
+  .folder-tile {
+    max-width: 50% !important;
+    transform: scale(.8);
+    margin-top: 0 !important;
+  }
+}
+
+@media (min-width:639px) and (max-width:1600px){
+  .folder-tile{
+    transform: scale(.8);
+    max-width: 20%;
+    min-width: 20%;
+    h1{
+      transform: scale(.6);
+    }
+  }
+}
+@media (min-width: 1600px) {
+  .folder-tile{
+    max-width: 15% !important;
+
+  }
+  .folder-tile:hover{
+    transform: scale(1.1);
+  }
 }

@@ -30,34 +30,33 @@ const Dictionaries = (props) => {
 
 
   const addNewDict = async (formPayLoad) => {
-    console.log(formPayLoad)
-    // formPayLoad.userId = props.user.id
-    // try{
-    //   const response = await fetch(`/api/v1/dictionaries/${dictionaryId}`, {
-    //     method: 'POST',
-    //     headers: new Headers ({
-    //       'Content-Type': 'application/json',
-    //     }),
-    //     body: JSON.stringify(formPayLoad),
-    //   })
-    //   if (!response.ok) {
-    //     if (response.status === 422) {
-    //       const body = await response.json()
-    //       const newErrors = translateServerErrors(body.errors)
-    //       setErrors(newErrors)
-    //     }
-    //     const errorMessage = `${response.status} (${response.statusText})`
-    //     const error = new Error(errorMessage)
-    //     throw error
-    // } else {
-    //   const formBody = await response.json()
-    //   setWords([formBody.word, ...words])
-    //   setErrors([])
-    //   return true
-    //   }
-    // } catch(error) {
-    //   return console.error(`Error in fetch: ${error.message}`)
-    // }
+    formPayLoad.userId = props.user.id
+    try{
+      const response = await fetch(`/api/v1/dictionaries`, {
+        method: 'POST',
+        headers: new Headers ({
+          'Content-Type': 'application/json',
+        }),
+        body: JSON.stringify(formPayLoad),
+      })
+      if (!response.ok) {
+        if (response.status === 422) {
+          const body = await response.json()
+          const newErrors = translateServerErrors(body.errors)
+          setErrors(newErrors)
+        }
+        const errorMessage = `${response.status} (${response.statusText})`
+        const error = new Error(errorMessage)
+        throw error
+    } else {
+      const formBody = await response.json()
+      setFolderOptions([formBody.folder, ...folderOptions])
+      setErrors([])
+      return true
+      }
+    } catch(error) {
+      return console.error(`Error in fetch: ${error.message}`)
+    }
   }
 
 
