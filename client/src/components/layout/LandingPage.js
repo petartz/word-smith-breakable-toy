@@ -9,7 +9,7 @@ const LandingPage = props => {
         <div className="redirect-container">
           <Link
             className="main-page-redirect"
-            to="/home">Go to the Main Page!
+            to="/dictionaries">Go to the Main Page!
           </Link>
         </div>
       </section>

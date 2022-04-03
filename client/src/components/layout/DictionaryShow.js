@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { withRouter } from "react-router" // <- here
+
 import translateServerErrors from "../../services/translateServerErrors.js"
 import { deleteYourWord, filterResults } from "./Requests.js";
 
@@ -10,15 +12,13 @@ import NewFilterForm from "./olderVersions/newFilterForm.js";
 import FilterMenu from "./FilterMenu.js";
 
 import MenuCloseIcon from "../assets/MenuCloseIcon.js";
-import CheckMarkIcon from "../assets/CheckMarkIcon";
 
-const HomePage = (props) => {
+const DictionaryShow = (props) => {
   const [words, setWords] = useState([])
   const [tags, setTags] = useState([])
 
   const [showRestricted, setShowRestricted] = useState(false)
   const [restrictedSearch, setRestrictedSearch] = useState(false)
-  const [showFilters, setShowFilters] = useState(false)
 
   const [errors, setErrors] = useState([])
   const [editErrors, setEditErrors] = useState([])
@@ -26,10 +26,12 @@ const HomePage = (props) => {
 
   const [folderOptions, setFolderOptions] = useState()
 
+  let dictionaryId = props.match.params.id
 
   const fetchWordData = async () => {
+    // debugger
     try{
-      const response = await fetch(`/api/v1/home`)
+      const response = await fetch(`/api/v1/dictionaries/${dictionaryId}`)
       if (!response.ok) {
         throw new Error(`${response.status} ${response.statusText}`)
       }
@@ -61,15 +63,14 @@ const HomePage = (props) => {
     }, [props.user])
 
 
-  const filter = async (tags) => {
-    console.log(restrictedSearch)
-    const words = await filterResults(tags, restrictedSearch)
+  const filter = async (tags, dictId) => {
+    const words = await filterResults(tags, restrictedSearch, dictId)
     console.log(words)
     setWords(words)
   }
 
   const wordDelete = (wordId) => {
-    deleteYourWord(wordId)
+    deleteYourWord(wordId, dictionaryId)
 
     const updatedWords = words.filter(word => word.id != wordId)
     setWords(updatedWords)
@@ -77,8 +78,9 @@ const HomePage = (props) => {
 
   const addNewWord = async (formPayLoad) => {
     formPayLoad.userId = props.user.id
+    formPayLoad.dictionaryId = dictionaryId
     try{
-      const response = await fetch("/api/v1/home", {
+      const response = await fetch(`/api/v1/dictionaries/${dictionaryId}`, {
         method: 'POST',
         headers: new Headers ({
           'Content-Type': 'application/json',
@@ -107,7 +109,7 @@ const HomePage = (props) => {
 
   const editYourWord = async (editedWord) => {
     try {
-      const response = await fetch(`/api/v1/home/edit`, {
+      const response = await fetch(`/api/v1/dictionaries/${dictionaryId}/edit`, {
         method: "POST",
         headers: new Headers({
           "Content-Type" : "application/json"
@@ -161,7 +163,11 @@ const HomePage = (props) => {
   })
 
   const toggleAdd = () => {
-    document.getElementById('overlay').classList.toggle('closed')
+    if (props.user){
+      document.getElementById('overlay').classList.toggle('closed')
+    } else {
+      alert("Sign in to add words")
+    }
   }
 
   const toggleFilters = () => {
@@ -222,4 +228,4 @@ const HomePage = (props) => {
   )
 
 }
-export default HomePage
+export default withRouter(DictionaryShow)

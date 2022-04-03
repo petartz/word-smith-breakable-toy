@@ -1,4 +1,3 @@
-
 .word-tile {
   border-radius: 0.5em;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -51,12 +50,13 @@
     color: white;
   }
 }
+
 .word-properties{
   text-align: center;
   font-family: serif;
   font-size: 1.3em;
   .word-title {
-    font-size: xx-large;
+    font-size: clamp(1em, 100vw, 2em);
   }
 }
 .tile-buttons{
@@ -87,7 +87,5 @@
   }
   .word-properties {
     font-size: .8em;
-
   }
-
 }

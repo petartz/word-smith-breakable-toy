@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { withRouter } from "react-router" // <- here
 import CheckMarkIcon from "../assets/CheckMarkIcon"
 
 const FilterMenu = (props) => {
@@ -6,8 +7,9 @@ const FilterMenu = (props) => {
   const [clickedTags, setClickedTags] = useState([])
 
   const fetchTags = async () => {
+    let dictionaryId = props.match.params.id
     try{
-      const response = await fetch(`/api/v1/home/tags`)
+      const response = await fetch(`/api/v1/dictionaries/${dictionaryId}/tags`)
       if (!response.ok) {
         throw new Error(`${response.status} ${response.statusText}`)
       }
@@ -36,8 +38,10 @@ const FilterMenu = (props) => {
 
   const handleSubmit = async event => {
     event.preventDefault()
+    let dictionaryId = props.match.params.id
+
     if (clickedTags.length >= 1){
-      await props.filterResults(clickedTags)
+      await props.filterResults(clickedTags, dictionaryId)
     } else {
       alert("You've selected no filters!")
     }
@@ -78,4 +82,4 @@ const FilterMenu = (props) => {
   )
 }
 
-export default FilterMenu
+export default withRouter(FilterMenu)

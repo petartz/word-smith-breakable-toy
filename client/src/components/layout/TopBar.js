@@ -49,7 +49,7 @@ const TopBar = ({ user }) => {
     <div className="menu-container">
       <div className="top-bar">
         <div className="top-bar-left">
-          <Link to="/home">
+          <Link to="/dictionaries">
             <img className="logo" src= {favicon} onClick={closeMenu} alt="icon"></img>
           </Link>
         </div>

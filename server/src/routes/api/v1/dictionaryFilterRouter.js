@@ -2,9 +2,9 @@ import express from "express"
 import WordSerializer from "../../../serializers/WordSerializer.js"
 import Tag from "../../../models/Tag.js"
 
-const homeFilterRouter = new express.Router()
+const dictionaryFilterRouter = new express.Router()
 
-homeFilterRouter.post("/", async (req,res)=>{
+dictionaryFilterRouter.post("/", async (req,res)=>{
   try{
     const tags = req.body.tags
     const restriction = req.body.restriction
@@ -18,4 +18,4 @@ homeFilterRouter.post("/", async (req,res)=>{
 
 })
 
-export default homeFilterRouter
+export default dictionaryFilterRouter

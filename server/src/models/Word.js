@@ -10,6 +10,8 @@ class Word extends Model{
     const Categorization = require("./Categorization.js")
     const User = require("./User.js")
     const Folder = require("./Folder.js")
+    const HomeFolder = require("./HomeFolder.js")
+
 
     return{
       tags: {
@@ -34,6 +36,18 @@ class Word extends Model{
             to: "dictionaries.folderId"
           },
           to: "folders.id"
+        }
+      },
+      homeFolders:{
+        relation: Model.ManyToManyRelation,
+        modelClass: HomeFolder,
+        join: {
+          from: "words.id",
+          through: {
+            from: "homeDictionaries.wordId",
+            to: "homeDictionaries.homeFolderId"
+          },
+          to: "homeFolders.id"
         }
       },
       categorizations: {

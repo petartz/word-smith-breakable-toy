@@ -2,31 +2,38 @@ import express from "express";
 import Word from "../../../models/Word.js"
 import Tag from "../../../models/Tag.js"
 import WordSerializer from "../../../serializers/WordSerializer.js";
-import homeFilterRouter from "./homeFilterRouter.js"
+import dictionaryFilterRouter from "./dictionaryFilterRouter.js"
 import cleanUserInput from "../../../services/cleanUserInput.js";
 import { ValidationError } from "objection";
-import homeEditRouter from "./homeEditRouter.js"
+import dictionaryEditRouter from "./dictionaryEditRouter.js"
 import Dictionary from "../../../models/Dictionary.js";
+import HomeDictionary from "../../../models/HomeDictionary.js";
 import tagsRouter from "./tagsRouter.js"
 
-const homePageRouter = new express.Router()
+const dictionaryShowRouter = new express.Router({ mergeParams:true })
 
-homePageRouter.use("/filter", homeFilterRouter)
-homePageRouter.use("/edit", homeEditRouter)
-homePageRouter.use("/tags", tagsRouter)
+dictionaryShowRouter.use("/filter", dictionaryFilterRouter)
+dictionaryShowRouter.use("/edit", dictionaryEditRouter)
+dictionaryShowRouter.use("/tags", tagsRouter)
 
-homePageRouter.get("/", async (req,res) =>{
+dictionaryShowRouter.get("/", async (req,res) =>{
+  let wordList = []
   try{
-    const words = await Word.query().orderBy("id", "desc").withGraphFetched("tags")
-
+    console.log(req.params)
+    const wordsToGet = await HomeDictionary.query().where("homeFolderId", req.params.id)
+    wordsToGet.forEach(word => {
+      wordList = [...wordList, word.wordId]
+    })
+    const words = await Word.query().whereIn("id", wordList).orderBy("id", "desc").withGraphFetched("tags")
     const serializedWords = WordSerializer.getSummary(words)
+
     return res.status(200).json({ words:serializedWords })
   } catch (error) {
     res.status(500).json({ errors:error })
   }
 })
 
-homePageRouter.delete("/delete", async (req,res) => {
+dictionaryShowRouter.delete("/delete", async (req,res) => {
   const { wordId } = req.body
 
   try {
@@ -41,8 +48,14 @@ homePageRouter.delete("/delete", async (req,res) => {
   }
 })
 
-homePageRouter.post('/', async (req,res) =>{
-  const formInput = cleanUserInput(req.body)
+dictionaryShowRouter.post('/', async (req,res) =>{
+  let formInput = cleanUserInput(req.body)
+
+  let dictEntry = { userId:formInput.userId,
+                    wordId: null,
+                    homeFolderId:formInput.dictionaryId
+                    }
+  delete formInput.dictionaryId
 
   for (let i=0; i<formInput.tags.length; i++){
     formInput.tags[i] = (await Tag.query().where({name:`${formInput.tags[i]}`}))[0]
@@ -50,6 +63,9 @@ homePageRouter.post('/', async (req,res) =>{
 
   try {
     const newWord = await Word.query().insertGraphAndFetch(formInput, { relate: true })
+    dictEntry.wordId = newWord.id
+    await HomeDictionary.query().insert(dictEntry)
+
     return res.status(200).json({ word:newWord })
   } catch (error) {
     if (error instanceof ValidationError) {
@@ -59,4 +75,4 @@ homePageRouter.post('/', async (req,res) =>{
   }
 })
 
-export default homePageRouter
+export default dictionaryShowRouter

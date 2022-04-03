@@ -26,9 +26,9 @@ class User extends uniqueFunc(Model) {
 
   static get relationMappings() {
     const Tag = require("./Tag.js")
-    const Categorization = require("./Categorization.js")
     const Word = require("./Word.js")
     const Folder = require("./Folder.js");
+    const HomeFolder = require("./HomeFolder.js");
 
     return {
       words: {
@@ -53,6 +53,14 @@ class User extends uniqueFunc(Model) {
         join: {
           from: "users.id",
           to: "folders.id"
+        }
+      },
+      homeFolders: {
+        relation: Model.HasManyRelation,
+        modelClass: HomeFolder,
+        join: {
+          from: "users.id",
+          to: "homeFolders.id"
         }
       }
     }

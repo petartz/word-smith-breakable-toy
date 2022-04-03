@@ -3,9 +3,9 @@ import Folder from "../../../models/Folder.js"
 import Dictionary from "../../../models/Dictionary.js"
 import Word from "../../../models/Word.js"
 
-const dictionaryRouter = new express.Router({ mergeParams:true })
+const userDictionaryRouter = new express.Router({ mergeParams:true })
 
-dictionaryRouter.get("/", async (req,res)=>{
+userDictionaryRouter.get("/", async (req,res)=>{
   try{
     const userId = req.params.id
     const folders = await Folder.query().where({ userId:userId })
@@ -20,7 +20,7 @@ dictionaryRouter.get("/", async (req,res)=>{
   }
 })
 
-dictionaryRouter.get(`/:dictName`, async (req,res) => {
+userDictionaryRouter.get(`/:dictName`, async (req,res) => {
   try{
     const userId = req.params.id
     const dictName = req.params.dictName
@@ -40,7 +40,7 @@ dictionaryRouter.get(`/:dictName`, async (req,res) => {
 })
 
 
-dictionaryRouter.post(`/:dictName`, async (req,res) => {
+userDictionaryRouter.post(`/:dictName`, async (req,res) => {
   const receivedBody = req.body
   console.log(req.body)
   try{
@@ -55,7 +55,7 @@ dictionaryRouter.post(`/:dictName`, async (req,res) => {
   }
 })
 
-dictionaryRouter.post("/", async (req,res)=>{
+userDictionaryRouter.post("/", async (req,res)=>{
   console.log(req.body)
   try{
     await Folder.query().insert(req.body)
@@ -66,4 +66,4 @@ dictionaryRouter.post("/", async (req,res)=>{
   }
 })
 
-export default dictionaryRouter
+export default userDictionaryRouter

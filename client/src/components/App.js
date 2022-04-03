@@ -6,10 +6,12 @@ import "../assets/scss/main.scss";
 import RegistrationForm from "./registration/RegistrationForm";
 import SignInForm from "./authentication/SignInForm";
 import TopBar from "./layout/TopBar";
-import HomePage from "./layout/HomePage.js"
 import AuthenticatedRoute from "./authentication/AuthenticatedRoute";
 import UserProfile from "./layout/UserProfile.js"
-import LandingPage from "./layout/LandingPage";
+import LandingPage from "./layout/LandingPage.js";
+
+import Dictionaries from "./layout/Dictionaries.js";
+import DictionaryShow from "./layout/DictionaryShow.js";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -41,8 +43,13 @@ const App = (props) => {
           user={currentUser}
           component={UserProfile}
         />
-        <Route exact path="/home">
-          <HomePage user={currentUser}/>
+
+        <Route exact path="/dictionaries">
+          <Dictionaries user={currentUser}/>
+        </Route>
+
+        <Route exact path="/dictionaries/:id">
+          <DictionaryShow user={currentUser}/>
         </Route>
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
