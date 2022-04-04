@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react"
 import WordTile from "./WordTile.js"
 import { deleteFromProfile } from "./Requests.js"
-
 import CreatableSelect from 'react-select/creatable';
+
+import UserProfileTopicExtractor from "./UserProfileTopicExtractor.js";
+
 
 const UserProfile = props => {
   const [userWords, setUserWords] = useState([])
@@ -39,14 +41,11 @@ const UserProfile = props => {
   }
 
   const wordCloudGen = async () => {
-    // console.log(userWords)
     let userWordsText = ""
     userWords.forEach(word =>{
       userWordsText += ` ${(word.definition)}`
     })
     userWordsText = userWordsText.replace(/\s[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase()
-
-    console.log(userWordsText)
 
     const sendBody = JSON.stringify({
       "text": userWordsText,
@@ -239,6 +238,8 @@ const UserProfile = props => {
               <button className="wordCloud-button" onClick={wordCloudGen}>Generate Word Cloud</button>
             </div>
             <div className="word-cloud" id="word-cloud"/>
+
+            <UserProfileTopicExtractor words={userWords}/>
           </div>
         </div>
       </div>
