@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ErrorList from "./ErrorList";
+import ErrorList from "../Errors/ErrorList";
 
 const EditForm = props => {
   const [editedWord, setEditedWord] = useState({

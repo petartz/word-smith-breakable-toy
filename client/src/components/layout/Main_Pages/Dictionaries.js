@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
-import FolderTile from "./FolderTile.js"
-import MenuCloseIcon from "../assets/MenuCloseIcon.js";
-import ErrorList from "./ErrorList.js";
-import NewDictForm from "./NewDictionaryForm.js";
+import FolderTile from "../Tiles/FolderTile"
+import MenuCloseIcon from "../../assets/MenuCloseIcon.js";
+import ErrorList from "../Errors/ErrorList.js";
+import NewDictForm from "../Forms/NewDictionaryForm.js";
 
 const Dictionaries = (props) => {
   const [folderOptions, setFolderOptions] = useState([])

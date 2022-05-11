@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
-import WordTile from "./WordTile.js"
-import { deleteFromProfile } from "./Requests.js"
+import WordTile from "../Tiles/WordTile.js"
+import { deleteFromProfile } from "../Requests.js"
 import CreatableSelect from 'react-select/creatable';
 
-import UserProfileTopicExtractor from "./UserProfileTopicExtractor.js";
+import UserProfileTopicExtractor from "../UserProfileTopicExtractor.js";
 
 
 const UserProfile = props => {

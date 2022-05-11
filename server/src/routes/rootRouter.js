@@ -2,7 +2,7 @@ import express from "express";
 import userSessionsRouter from "./api/v1/userSessionsRouter.js";
 import usersRouter from "./api/v1/usersRouter.js";
 import clientRouter from "./clientRouter.js";
-import dictionaryShowRouter from "./api/v1/dictionaryShowRouter.js"
+import dictionaryShowRouter from "./api/v1/homeDictionaryShowRouter.js"
 import userProfileRouter from "./api/v1/userProfileRouter.js"
 import wordCloudRouter from "./api/v1/wordCloudRouter.js"
 import homeDictionaryRouter from "./api/v1/homeDictionaryRouter.js"

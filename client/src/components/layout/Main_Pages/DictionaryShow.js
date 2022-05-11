@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router" // <- here
-
-import translateServerErrors from "../../services/translateServerErrors.js"
-import { deleteYourWord, filterResults } from "./Requests.js";
-
-import WordTile from "./WordTile";
-import NewWordForm from "./NewWordForm";
-import ErrorList from "./ErrorList.js";
-
-import NewFilterForm from "./olderVersions/newFilterForm.js";
-import FilterMenu from "./FilterMenu.js";
-
-import MenuCloseIcon from "../assets/MenuCloseIcon.js";
+import translateServerErrors from "../../../services/translateServerErrors.js"
+import { deleteYourWord, filterResults } from "../Requests.js";
+import WordTile from "../Tiles/WordTile";
+import NewWordForm from "../Forms/NewWordForm";
+import ErrorList from "../Errors/ErrorList.js";
+import NewFilterForm from "../olderVersions/newFilterForm.js";
+import FilterMenu from "../Forms/FilterMenu.js";
+import MenuCloseIcon from "../../assets/MenuCloseIcon.js";
 
 const DictionaryShow = (props) => {
   const [words, setWords] = useState([])
@@ -178,7 +174,7 @@ const DictionaryShow = (props) => {
     if(!document.getElementById('filter-sidebar closed'))
     document.getElementById('filter-sidebar').classList.add('closed')
   }
-
+//why needed
 
   return(
     <div className="home-main">

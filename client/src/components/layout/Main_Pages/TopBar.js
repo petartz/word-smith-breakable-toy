@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import SignOutButton from "../authentication/SignOutButton";
-import UserProfileButton from "../authentication/UserProfileButton";
-import MobileMenu from "./mobile/MobileMenu";
+import SignOutButton from "../../authentication/SignOutButton";
+import UserProfileButton from "../../authentication/UserProfileButton";
+import MobileMenu from "../mobile/MobileMenu";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faToolbox } from "@fortawesome/free-solid-svg-icons";
 
-import favicon from "../../../public/favicon.jpg"
+import favicon from "../../../../public/favicon.jpg"
 
 const TopBar = ({ user }) => {
 

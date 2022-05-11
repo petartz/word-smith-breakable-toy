@@ -2,10 +2,10 @@ import express from "express";
 import Word from "../../../models/Word.js"
 import Tag from "../../../models/Tag.js"
 import WordSerializer from "../../../serializers/WordSerializer.js";
-import dictionaryFilterRouter from "./dictionaryFilterRouter.js"
+import dictionaryFilterRouter from "./homeDictionaryFilterRouter.js"
 import cleanUserInput from "../../../services/cleanUserInput.js";
 import { ValidationError } from "objection";
-import dictionaryEditRouter from "./dictionaryEditRouter.js"
+import dictionaryEditRouter from "./homeDictionaryEditRouter.js"
 
 import HomeDictionary from "../../../models/HomeDictionary.js";
 import tagsRouter from "./tagsRouter.js"

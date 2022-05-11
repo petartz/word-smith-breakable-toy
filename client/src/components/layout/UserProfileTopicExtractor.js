@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
-import RosetteTile from "./RosetteTile.js"
-import RosetteTileConcept from "./RosetteTileConcept.js"
+import RosetteTile from "./Tiles/RosetteTile.js"
+import RosetteTileConcept from "./Tiles/RosetteTileConcept.js"
 
 const UserProfileTopicExtractor = props => {
   const [concepts, setConcepts] = useState([])
