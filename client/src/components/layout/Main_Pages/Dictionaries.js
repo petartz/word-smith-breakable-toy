@@ -8,7 +8,6 @@ const Dictionaries = (props) => {
   const [folderOptions, setFolderOptions] = useState([])
   const [errors, setErrors] = useState([])
 
-
   const getDictionaries = async () => {
     try{
       const response = await fetch(`/api/v1/dictionaries`)
