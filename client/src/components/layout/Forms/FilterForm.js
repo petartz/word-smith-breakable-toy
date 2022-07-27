@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react"
 const FilterForm = (props) => {
   const [tagOptions, setTagOptions] = useState([])
 
-  let legend = "Hello"
+  let filterList = <li></li>
 
   const fetchTags = async () => {
     try{
@@ -18,12 +18,12 @@ const FilterForm = (props) => {
       })
 
       console.log(tagsArray)
-      legend = tagsArray.map(tag => {
+      filterList = tagsArray.map(tag => {
         <li>
           <label>{tag.value}</label>
         </li>
       })
-      console.log(legend)
+      console.log(filterList)
 
       setTagOptions(tagsArray)
 
@@ -41,7 +41,7 @@ const FilterForm = (props) => {
   return (
     <div>
       <ul className="filter-form">
-      {legend}
+      {filterList}
       </ul>
     </div>
   )

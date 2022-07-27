@@ -3,15 +3,15 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { hot } from "react-hot-loader/root";
 import getCurrentUser from "../services/getCurrentUser";
 import "../assets/scss/main.scss";
+import AuthenticatedRoute from "./authentication/AuthenticatedRoute";
 import RegistrationForm from "./registration/RegistrationForm";
 import SignInForm from "./authentication/SignInForm";
-import TopBar from "./layout/TopBar";
-import AuthenticatedRoute from "./authentication/AuthenticatedRoute";
-import UserProfile from "./layout/UserProfile.js"
-import LandingPage from "./layout/LandingPage.js";
+import TopBar from "./layout/Main_Pages/TopBar.js";
+import UserProfile from "./layout/Main_Pages/UserProfile.js"
+import LandingPage from "./layout/Main_Pages/LandingPage.js";
 
-import Dictionaries from "./layout/Dictionaries.js";
-import DictionaryShow from "./layout/DictionaryShow.js";
+import Dictionaries from "./layout/Main_Pages/Dictionaries";
+import DictionaryShow from "./layout/Main_Pages/DictionaryShow.js";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import config from "../../config";
-import FormError from "../layout/FormError";
+import FormError from "../layout/Errors/FormError";
 
 const SignInForm = () => {
   const [userPayload, setUserPayload] = useState({ email: "", password: "" });

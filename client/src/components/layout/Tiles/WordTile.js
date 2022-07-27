@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle, faEdit } from "@fortawesome/free-solid-svg-icons"
-import EditForm from "./EditForm.js"
+import EditForm from "../Forms/EditForm.js"
 
 import Select from 'react-select';
 import TagTile from "./TagTile.js";

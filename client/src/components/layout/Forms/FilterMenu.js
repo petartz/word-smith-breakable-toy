@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { withRouter } from "react-router" // <- here
-import CheckMarkIcon from "../assets/CheckMarkIcon"
+import CheckMarkIcon from "../../assets/CheckMarkIcon"
 
 const FilterMenu = (props) => {
   const [tagOptions, setTagOptions] = useState([])

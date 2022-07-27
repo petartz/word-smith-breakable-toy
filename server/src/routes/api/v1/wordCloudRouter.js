@@ -1,6 +1,5 @@
 import express from "express"
 import got from 'got'
-import fs from "fs"
 
 const wordCloudRouter = new express.Router()
 
