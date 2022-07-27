@@ -19,11 +19,14 @@ to take ownership of our words.
 * Node.js
 * Express
 * React
+* SQL
+* knex and objection
 * React-select
 * Passport
 * Generator-Engage
 * Dictionary of Obscure Sorrows API
 * Quickchart.io
+* Rossette Analytics (Basis Technologies)
 
 ## Set-up
 ### Requirements for Setup
@@ -38,7 +41,7 @@ Setting up this repository is quick and easy if you have yarn and npm installed 
 git clone https://github.com/petartz/word-smith-breakable-toy.git
 ```
 2. Run ```yarn install``` to download all dependencies utilized in the app
-3. Run ``` yarn createdb wordSmithApp_development``` to generate a database for the project
+3. Run ``` createdb word-smith-breakable-toy_development``` to generate a database for the project
 4. Change to the server folder with ```cd server``` to operate on the database 
 5. Run ``` yarn migrate:latest ``` to set-up the local database on your machine
 6. Run ``` yarn db:seed ``` to seed/pre-load the dictionary of Obscure Sorrows and the pre-designated tags for it which come built into the App
@@ -49,7 +52,7 @@ $ git clone https://github.com/petartz/word-smith-breakable-toy.git
 $ touch wordsmithApp
 $ cd wordsmithApp
 $ yarn install
-$ createdb wordsmithApp_development
+$ createdb word-smith-breakable-toy_development
 $ cd server
 $ yarn migrate:latest
 $ yarn db:seed
